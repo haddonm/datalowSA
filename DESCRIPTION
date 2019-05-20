@@ -1,0 +1,30 @@
+Package: datalowSA
+Type: Package
+Title: A Package to Faciliate Application of Data poor Stock Assessments
+Version: 0.1.0
+Date: 2019-05-20
+Author: Malcolm Haddon
+Maintainer: Malcolm Haddon <Malcolm.Haddon@gmail.com>
+Description: datalowSA is a significant fork of the original simpleSA developed during
+    FRDC project 2017/102 (Haddon et al., 2018), and it is a renamed version of the now
+    deprecated humbleSA. The unused functions relating to 
+    YPR are now removed. This version fixes up a bunch of typos in the catch_MSY 
+    vignette and now includes functions for conducting age-structured stock 
+    reduction analyses (not stochastic SRA, yet). Although, as yet, there is no vignette 
+    describing its use. I will continue with its development slowly. This version on github
+    now includes all the vignettes currently written.
+License: GPL-3    
+Depends: R (>= 3.0)
+Encoding: UTF-8
+LazyData: TRUE
+Imports: Rcpp (>= 1.0.0)
+LinkingTo: Rcpp
+RoxygenNote: 6.1.1
+Suggests:
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+Reference: Haddon, M., Burch, P., Dowling, N., and R. Little (2018) Reducing the Number 
+    of Undefined Species in Future Status of Australian Fish Stocks Reports: Phase Two 
+    - training in the assessment of data-poor stocks. CSIRO. FRDC Final Report 2017/102. 
+    Hobart. 125 p.

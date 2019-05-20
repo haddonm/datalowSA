@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Introduction</title>
+
+<script type="text/javascript">
+window.onload = function() {
+  var imgs = document.getElementsByTagName('img'), i, img;
+  for (i = 0; i < imgs.length; i++) {
+    img = imgs[i];
+    // center an image if it is the only element of its parent
+    if (img.parentElement.childElementCount === 1)
+      img.parentElement.style.textAlign = 'center';
+  }
+};
+</script>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: #990073
+   }
+
+   pre .number {
+     color: #099;
+   }
+
+   pre .comment {
+     color: #998;
+     font-style: italic
+   }
+
+   pre .keyword {
+     color: #900;
+     font-weight: bold
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: #d14;
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 13px;
+}
+
+body {
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  line-height: 20px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 {
+   font-size:2.2em;
+}
+
+h2 {
+   font-size:1.8em;
+}
+
+h3 {
+   font-size:1.4em;
+}
+
+h4 {
+   font-size:1.0em;
+}
+
+h5 {
+   font-size:0.9em;
+}
+
+h6 {
+   font-size:0.8em;
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre, img {
+  max-width: 100%;
+}
+pre {
+  overflow-x: auto;
+}
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code {
+  font-size: 92%;
+  border: 1px solid #ccc;
+}
+
+code[class] {
+  background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * {
+      background: transparent !important;
+      color: black !important;
+      filter:none !important;
+      -ms-filter: none !important;
+   }
+
+   body {
+      font-size:12pt;
+      max-width:100%;
+   }
+
+   a, a:visited {
+      text-decoration: underline;
+   }
+
+   hr {
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote {
+      padding-right: 1em;
+      page-break-inside: avoid;
+   }
+
+   tr, img {
+      page-break-inside: avoid;
+   }
+
+   img {
+      max-width: 100% !important;
+   }
+
+   @page :left {
+      margin: 15mm 20mm 15mm 10mm;
+   }
+
+   @page :right {
+      margin: 15mm 10mm 15mm 20mm;
+   }
+
+   p, h2, h3 {
+      orphans: 3; widows: 3;
+   }
+
+   h2, h3 {
+      page-break-after: avoid;
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<h2>Introduction</h2>
+
+<h3>Which Assessment to Apply</h3>
+
+<p>Which stock assessment method to apply to fisheries for data-poor to data-moderate species will depend upon what fisheries and biological data are available but also, importantly, on what management objectives need to be met within the jurisdiction in question. It may be the case that the fishery for a particular species is of sufficient size and value to warrant on-going monitoring and management towards some defined goal for the stock. In such a case the assessment used should obviously be capable of generating some notion of the current state of the fishery and indicate what management actions may be required to eventually achieve the agreed management goals. But some fisheries may be so minor that trying to actively manage them would be inefficient. Nevertheless, to meet the requirements of the Status of key Australian Fish Stocks (SAFS) one still requires some form of defensible stock assessment capable of determining whether the current level of fishing is sustainable.     </p>
+
+<h2>Catch Curve Analyses</h2>
+
+<p>Catch curves are an assessment approach that has a relatively long history. The ideas behind them is very simple. If the total population concerned received constant recruitment and a constant mortality rate each year, such an equilibrium assumption would imply that all cohorts would be identical and the numbers in each age class would be expected to decline exponentially. It is possible to follow the fate of a single cohort through a number of years or consider multiple cohorts in a single year and both of those options </p>
+
+<p>\[{{N}_{t}}={{N}_{0}}{{e}^{-(M+F)t}}={N}_{0}{e}^{-Zt}={N}_{t-1}{e}^{-Z}\]
+where <em>N~t~</em> is the numbers at a particular age (a cohort) <em>t</em>, <em>M</em> is the natural mortality, <em>F</em> is the age-specific fishing mortality, <em>Z</em> is the age-specific total mortality. This relationship can be linearized through log-transformation.</p>
+
+<p>\[Log({N}_{t})=Log({N}_{0})-Zt\]
+which is obviously a simple linear regression. This means if one assumes that fishing mortality and natural mortality have been constant and one has the age-composition of the catch in a single year if one plots up the log-transformed numbers-at-age and plot those against age then the gradient of a linear regression through the data will provide an estimate of total mortality. This can be illustrated through the use of a particular data set and we will use one of the built in data sets: plaice.</p>
+
+<pre><code class="r"># library(datalowSA)
+data(plaice)
+str(plaice,max.level=1)
+</code></pre>
+
+<pre><code>## List of 5
+##  $ fish   :&#39;data.frame&#39;: 9 obs. of  4 variables:
+##  $ glb    :List of 18
+##  $ props  :&#39;data.frame&#39;: 11 obs. of  6 variables:
+##  $ agedata:List of 5
+##  $ lendata:List of 5
+</code></pre>
+
+<pre><code class="r">naa &lt;- plaice$agedata$naa
+pick &lt;- which(naa[,&quot;sex&quot;] == 1)
+yrs &lt;- naa[pick,&quot;year&quot;]
+naa &lt;- naa[pick,3:11]
+ages &lt;- plaice$agedata$ages
+#plotprep()
+compyear(naa,yrs,ages,plots=c(3,3),freq=TRUE,border=3)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" title="plot of chunk plaicedata" alt="plot of chunk plaicedata" style="display: block; margin: auto;" /></p>
+
+<p><strong>Figure 1.</strong> Numbers-at-age for each year of data from the plaice data set.</p>
+
+<p>When the age data from the plaice data set are considered it is  clear that the notion of a exponential decline is only approximated by this real data. Such deviations from the theoretical expectation derive from the fact that real populations are not in equilibrium and recruitment is not a constant. For example, a strong year class becomes apparent in the 1932 year and the progression is relatively easily seen through 1933 and 1934. So the dynamics appears to be realistic although the assumptions about equilibrium do not appear to be valid. Despite this we can use this data to illustrate the use of the catch curves. </p>
+
+<p>A standard workflow when using catch curves might consist of:</p>
+
+<ol>
+<li>read in age composition data (and natural mortality depending)</li>
+<li>visualize that age composition using the function <strong>compyear</strong>. </li>
+<li>use <strong>naiveCC</strong> for the classical catch curve.</li>
+<li>alternatively use <strong>selectCC</strong> where the selectivity is estimated as well as the gradient of decline.</li>
+</ol>
+
+<h2>Application of The Classical Catch Curves</h2>
+
+<p>One obvious aspect of the age composition data illustrated in <strong>Figure 1</strong> is that the earlier ages classes are less common than later age classes. This is a reflection of the effects of selectivity on what gets caught. The classical catch curve primarily involves fitting a linear regression to the log-transformed numbers-at-age. Given the effect of selectivity it would be invalid to simply fit a regression to all age data. To avoid the effects of selectivity the classical catch curve requires one to select an age from which to fit the regression.</p>
+
+<pre><code class="r">M &lt;- plaice$glb$M
+pickage &lt;- 4  # try repeating this but compare with pickage = 3
+numaa &lt;- naa[1,]   # repeat this using different years of data
+out &lt;- classicCC(M,ages,numaa,pickage,plot=TRUE)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" title="plot of chunk fitclassicCC" alt="plot of chunk fitclassicCC" style="display: block; margin: auto;" /></p>
+
+<p><strong>Figure 2.</strong> The classical catch curve applied to the age data from 1929, from the plaice data set. The age at which the regression line begins to be fitted in the plot was age 4 (<em>pickage</em> = 4). If a <em>pickage</em> of 3 was chosen the regression line would be somewhat steeper, which would have implied a higher fishing mortality rate.</p>
+
+<p>If the <code>classicCC</code> is applied to each of the nine years of data it would be important to use the same <em>pickage</em>. In some cases (possibly 1932 - 1934) the strong year class can disrupt this analysis by suggesting that selectivity only operates from a much older <em>pickage</em>.</p>
+
+<pre><code class="r">M &lt;- plaice$glb$M
+pickage &lt;- 4   # try repeating this but compare with pickage = 4
+numaa &lt;- naa[5,]   # repeat this using different years of data
+out &lt;- classicCC(M,ages,numaa,pickage,plot=TRUE)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" title="plot of chunk fitclassicCC2" alt="plot of chunk fitclassicCC2" style="display: block; margin: auto;" /></p>
+
+<p><strong>Figure 3.</strong> The classical catch curve applied to the age data from 1933, from the plaice data set. The age at which the regression line begins to be fitted in the plot was age 4 (<em>pickage</em> = 4). If considered alone this plot appears to suggest that a <em>pickage</em> of 5 might be chosen, but that would be merely a reflection of the strong year class rather than the original pickage of 4.</p>
+
+<pre><code class="r">print(out)
+</code></pre>
+
+<pre><code>## $FF
+## ages[pickA] 
+##    0.573941 
+## 
+## $coef
+## Intercept         Z 
+## 11.380375 -0.873941 
+## 
+## $regress
+## 
+## Call:
+## lm(formula = log(freqs[pickA]) ~ ages[pickA])
+## 
+## Coefficients:
+## (Intercept)  ages[pickA]  
+##     11.3804      -0.8739
+</code></pre>
+
+<p>By comparing <em>Figures 2 and 3</em> it should be clear that only having a single year of catch age composition data would include a risk that the interpretation of the selectivity within the fishery concerned may be biased. The interpretation of catch curves becomes compromised by the presence of very strong year classes and their presence usually means use of catch curves becomes invalid.</p>
+
+<h2>Inclusion of Selectivity in Catch Curves</h2>
+
+<pre><code class="r">data(plaice)
+glb &lt;- plaice$glb
+naa &lt;- plaice$agedata$naa
+pick &lt;- which(naa[,&quot;sex&quot;] == 1)
+naa &lt;- naa[pick,3:11]
+numaa &lt;- naa[2,] 
+pars &lt;- c(A50=3.0,delta=0.5,fcur=0.6)
+out &lt;- selectCC(glb$M,glb$maxage,numaa,pars,plot=TRUE)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" title="plot of chunk selectCC" alt="plot of chunk selectCC" style="display: block; margin: auto;" /></p>
+
+<p><strong>Figure 4.</strong> This catch curve uses a simple age-structured model to include the estimation of selectivity from the age data. It provides an estimate of fully selected fishing mortality rather than an average fishing mortality applied to all included age classes (as in the classicCC).</p>
+
+<pre><code class="r">print(out)
+</code></pre>
+
+<pre><code>## $best
+## $best$par
+##       A50     delta      fcur 
+## 3.1352400 0.8697291 0.4824969 
+## 
+## $best$value
+## [1] 10589.32
+## 
+## $best$counts
+## function gradient 
+##      118       NA 
+## 
+## $best$convergence
+## [1] 0
+## 
+## $best$message
+## NULL
+## 
+## 
+## $result
+##    counts predcounts logcount logpredcount        pCAA    predpCAA Selectivity        FaA
+## 2     223  212.70507 5.407172     5.359907 0.033323371 0.031784977  0.02097312 0.01011947
+## 3    2246 2223.50150 7.716906     7.706838 0.335624626 0.332262628  0.38749588 0.18696557
+## 4    1938 2260.22382 7.569412     7.723219 0.289599522 0.337750122  0.94919485 0.45798359
+## 5    1620 1076.64722 7.390181     6.981607 0.242080096 0.160885717  0.99819084 0.48162400
+## 6     302  493.00629 5.710427     6.200522 0.045128512 0.073670994  0.99993863 0.48246730
+## 7     106  225.44424 4.663439     5.418073 0.015839809 0.033688619  0.99999792 0.48249591
+## 8     181  103.08744 5.198497     4.635578 0.027047221 0.015404579  0.99999993 0.48249688
+## 9      58   47.13806 4.060443     3.853081 0.008667065 0.007043942  1.00000000 0.48249691
+## 10     18   39.71440 2.890372     3.681714 0.002689779 0.005934609  1.00000000 0.48249691
+</code></pre>
+
+<h2>Discussion</h2>
+
+<h3>Management Advice from Catch Curves</h3>
+
+<h2>References</h2>
+
+<p>Dick, E.J. and A.D. MacCall (2011) Depletion-based stock reduction analysis: a catch-based method for determining sustainable yields for data-poor fish stocks. <em>Fisheries Research</em> <strong>110</strong>(2): 331-341</p>
+
+<p>Haddon, M. (2014) Tier 4 analyses in the SESSF, including deep water species. Data from 1986 – 2012. Pp 352 – 461 in Tuck, G.N. (ed) (2014) <em>Stock Assessment for the Southern and Eastern Scalefish and Shark Fishery 2013. Part 2.</em> Australian Fisheries Management Authority and CSIRO Marine and Atmospheric Research, Hobart. 313p.</p>
+
+<p>Haddon, M., Klaer, N., Wayte, S., and G. Tuck (2015) <em>Options for Tier 5 approaches in the SESSF and identification of when data support for harvest strategies are inappro-priate.</em> CSIRO. FRDC Final Report 2013/200. Hobart. 115p.</p>
+
+<p>Kimura, D.K. and J.V. Tagart (1982) Stock Reduction Analysis, another solution to the catch equations. <em>Canadian Journal of Fisheries and Aquatic Sciences</em> <strong>39</strong>: 1467 - 1472.</p>
+
+<p>Kimura, D.K., Balsiger, J.W., and Ito, D.H. 1984. Generalized stock reduction analysis. <em>Canadian Journal of Fisheries and Aquatic Sciences</em> <strong>41</strong>: 1325–1333.</p>
+
+<p>Little, L.R., Wayte, S.E., Tuck, G.N., Smith, A.D.M., Klaer, N., Haddon, M., Punt, A.E., Thomson, R., Day, J. and M. Fuller (2011) Development and evaluation of a cpue-based harvest control rule for the southern and eastern scalefish and shark fishery of Australia. <em>ICES Journal of Marine Science</em> <strong>68</strong>(8): 1699-1705.</p>
+
+<p>Martell, S. and R. Froese (2013) A simple method for estimating MSY from catch and resilience. <em>Fish and Fisheries</em> <strong>14</strong>: 504-514</p>
+
+<p>Punt, A.E., Butterworth, D.S. and A.J. Penney (1995) Stock assessment and risk analysis for the South Atlantic population of albacore <em>Thunnus alalunga</em> using an age-structured production model <em>South African Journal of Marine Science</em> <strong>16</strong>: 287-310. <a href="http://dx.doi.org/10.2989/025776195784156476">http://dx.doi.org/10.2989/025776195784156476</a></p>
+
+<p>R Core Team (2017). <em>R: A language and environment for statistical computing.</em> R Foundation for Statistical Computing, Vienna, Austria. URL <a href="https://www.R-project.org/">https://www.R-project.org/</a>. see also <a href="https://cran.r-project.org/">https://cran.r-project.org/</a></p>
+
+<p>RStudio (2016)  <a href="http://www.rstudio.com">www.rstudio.com</a></p>
+
+<p>Schaefer, M.B. (1954) Some aspects of the dynamics of populations important to the management of the commercial marine fisheries. <em>Bulletin, Inter-American Tropical Tuna Commission</em>, <strong>1</strong>: 25-56. </p>
+
+<p>Schaefer, M.B. (1957) A study of the dynamics of the fishery for yellowfin tuna in the Eastern Tropical Pacific Ocean. <em>Bulletin, Inter-American Tropical Tuna Commission</em>, <strong>2</strong>: 247-285</p>
+
+<p>Walters, C.J., Martell, S.J.D. and J. Korman (2006) A stochastic approach to stock reduction analysis. <em>Canadian Journal of Fisheries and Aquatic Sciences</em> <strong>63</strong>: 212 - 223.</p>
+
+<h2>Appendix: Catch Curve Equations</h2>
+
+</body>
+
+</html>
