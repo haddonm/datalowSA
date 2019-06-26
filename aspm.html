@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Introduction</title>
+
+<script type="text/javascript">
+window.onload = function() {
+  var imgs = document.getElementsByTagName('img'), i, img;
+  for (i = 0; i < imgs.length; i++) {
+    img = imgs[i];
+    // center an image if it is the only element of its parent
+    if (img.parentElement.childElementCount === 1)
+      img.parentElement.style.textAlign = 'center';
+  }
+};
+</script>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: #990073
+   }
+
+   pre .number {
+     color: #099;
+   }
+
+   pre .comment {
+     color: #998;
+     font-style: italic
+   }
+
+   pre .keyword {
+     color: #900;
+     font-weight: bold
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: #d14;
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 13px;
+}
+
+body {
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  line-height: 20px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 {
+   font-size:2.2em;
+}
+
+h2 {
+   font-size:1.8em;
+}
+
+h3 {
+   font-size:1.4em;
+}
+
+h4 {
+   font-size:1.0em;
+}
+
+h5 {
+   font-size:0.9em;
+}
+
+h6 {
+   font-size:0.8em;
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre, img {
+  max-width: 100%;
+}
+pre {
+  overflow-x: auto;
+}
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code {
+  font-size: 92%;
+  border: 1px solid #ccc;
+}
+
+code[class] {
+  background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * {
+      background: transparent !important;
+      color: black !important;
+      filter:none !important;
+      -ms-filter: none !important;
+   }
+
+   body {
+      font-size:12pt;
+      max-width:100%;
+   }
+
+   a, a:visited {
+      text-decoration: underline;
+   }
+
+   hr {
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote {
+      padding-right: 1em;
+      page-break-inside: avoid;
+   }
+
+   tr, img {
+      page-break-inside: avoid;
+   }
+
+   img {
+      max-width: 100% !important;
+   }
+
+   @page :left {
+      margin: 15mm 20mm 15mm 10mm;
+   }
+
+   @page :right {
+      margin: 15mm 10mm 15mm 20mm;
+   }
+
+   p, h2, h3 {
+      orphans: 3; widows: 3;
+   }
+
+   h2, h3 {
+      page-break-after: avoid;
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<h2>Introduction</h2>
+
+<h3>Which Stock Assessment?</h3>
+
+<p>Which stock assessment method to apply to fisheries for data-poor to data-moderate species will depend upon what fisheries and biological data are available but also, importantly, on what management objectives need to be met within the jurisdiction in question. It may be the case that the fishery for a particular species is of sufficient size and value to warrant on-going monitoring and management towards some defined goal for the stock. In such a case the assessment used should obviously be capable of generating some notion of the current state of the fishery and indicate what management actions may be required to eventually achieve the agreed management goals. But some fisheries may be so minor that trying to actively manage them would be inefficient. Nevertheless, to meet the requirements of the Status of key Australian Fish Stocks (SAFS) one still requires some form of defensible stock assessment capable of determining whether the current level of fishing is sustainable.     </p>
+
+<h2>Age-Structured Production Model</h2>
+
+<h3>Introduction to ASPM</h3>
+
+<p>The age-structured production model (ASPM or <strong>aspm</strong>) is literally a surplus production model which is based upon an age-structured model of production rather than an accumulated biomass model (see the vignette on <em>spm</em>).</p>
+
+<p>There are some specific data requirements for fitting an age-structured production model to fishery data. Data from the fishery need to included, as a minimum, an accurate catch time-series plus an index of relative abundance for at least some of the years within the catch time-series. In addition, information (or defensible assumptions) is needed for the species concerned in relation to the description of its natural mortality, its growth, its maturation, and the selectivity of the fishery (maturity and selectivity could be knife-edge). If just the catches and CPUE data are available then one might try fitting a simple, aggregated biomass surplus production model. But if these biological data and information are available then an age-structured production model opens the way to on-going improvements with respect to the inclusion of occasional age-composition data or other observations that could be predicted by a suitable model and hence included in the model fitting process. </p>
+
+<p>More details on age-structured production models can be found in Punt et al. (1995). The model equations are provided in the appendix. It would be helpful to the user to read the spm vignette as the theory in there also applies to age-structured production models.</p>
+
+<h3>A Typical Workflow</h3>
+
+<p>A typical workflow for using an age-structured production model might be something like:</p>
+
+<ol>
+<li>read in the available data and use <em>checkdata</em> to ensure it can be used with <strong>aspm</strong>. </li>
+<li>search for suitable initial parameter values using <em>dynamics</em>, <em>aspmLL</em>, and <em>plotASPM</em>, this will include deciding on the use of a two parameter model (no initial depletion) or a three parameter model accounting for an initial depletion level.</li>
+<li>given suitable initial parameters use <em>fitASPM</em> or more basically <em>optim</em> to fit the model to the available data.</li>
+<li>once successfully fitted it is best to plot the solution to determine visually how close the model fit is to the data using <em>plotASPM</em>. One approach to improving this is to include confidence intervals around the index of relative abundance (cpue). This is done first using <em>getLNCI</em> and then including the output of this into <em>plotASPM</em> or, for a closer look in <em>plotceASPM</em>. Eventually improved confidence intervals for the model outputs can be obtained using boostrap samples (see below).</li>
+<li>A better test of the robustness of the solution is to test how sensitive it is to the initial conditions. This can be done by randomly varying the initial parameters and determining whether the model fitting outcomes vary. Suitable example code is given in the vignette.</li>
+<li>After finally deciding on the overall optimum solution it would be sensible to use the optimum parameters to determine the implied production curve so that management statistics such as MSY, the target catch, and the limit and target reference points can be defined. This can be done using <em>getProductionC</em>, the <em>C</em> post-fix denoting this is a C++ function (used for speed), the results of which can be plotted and summarized using <em>prodASPM</em>.</li>
+<li>One can produce a classical phase plot of predicted biomass vs harvest rate to aid in the determination of the stock status, and for this we would use <em>aspmphaseplot</em>.</li>
+<li>Finally, to obtain a better notion of the uncertainty in the analysis, and we can do that using <em>bootASPM</em>, which facilitates the application of a bootstrap analysis. </li>
+</ol>
+
+<h3>An Example</h3>
+
+<p>The data requirements for the <strong>aspm</strong> are described above and for the next example we will use the <em>dataspm</em> built in data set. First we will examine an example using only two parameters (assuming the population begins in an unfished state) and then extend the model fitting to include the possibility of an initially depleted state. The two parameters being fitted are the average unfished recruitment level and the standard deviation of the errors around the CPUE data. </p>
+
+<p>We load <em>dataspm</em>, which contains a dataframe of the catches and CPUE by year (<em>fish</em>) and other parameters used for the age-structured production model. </p>
+
+<pre><code class="r"># library(datalowSA)
+data(dataspm)
+fish &lt;- dataspm$fish
+props &lt;- dataspm$props # length-, weight-, maturity- and selectivity-at-age
+</code></pre>
+
+<p>While a simple, aggregated biomass surplus production model only requires the specification of the species name in the <em>glb</em> data object an <strong>aspm</strong> requires information on the growth, selectivity, weight-at-age, steepness of the stock-recruit relationship and natural mortality. The global parameters (<em>glb</em>), in addition to the <em>spsname</em>, need to contain the population ages (<em>maxage</em> and <em>ages</em>), natural mortality (<em>M</em>), von Bertalanffy growth parameters (<em>Linf</em>, <em>K</em> and <em>t0</em>), weight-at-age parameters (<em>Waa</em> and <em>Wab</em>), age at 50% maturity, delta (<em>M50a</em> and <em>deltaM</em>), age that 50% of the population are selected by the gear and delta (<em>sela50</em> and <em>deltaS</em>) and the <em>steepness</em> of the stock-recruitment relationship. The number of years (<em>nyrs</em>) of over which catch and CPUE are available (including missing years) is calculated from the <em>fish</em> dataframe. A starting value for the log of the initial recruitment (<em>R0</em>) also needs to be provided, although this will be estimated along with the standard deviation of the errors around the CPUE data. </p>
+
+<p>We inspect the global parameters specified in <em>dataspm</em>.</p>
+
+<pre><code class="r">(glb &lt;- dataspm$glb)
+</code></pre>
+
+<pre><code>## $maxage
+## [1] 20
+## 
+## $M
+## [1] 0.225
+## 
+## $Linf
+## [1] 103.4
+## 
+## $K
+## [1] 0.2
+## 
+## $t0
+## [1] -3.139
+## 
+## $Waa
+## [1] 0.0029
+## 
+## $Wab
+## [1] 3.139
+## 
+## $M50a
+## [1] 5
+## 
+## $deltaM
+## [1] 2.5
+## 
+## $steep
+## [1] 0.75
+## 
+## $R0
+## [1] 13.7
+## 
+## $sela50
+## [1] 3.5
+## 
+## $deltaS
+## [1] 1
+## 
+## $resilience
+## [1] &quot;low&quot;
+## 
+## $nages
+## [1] 21
+## 
+## $ages
+##  [1]  0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20
+## 
+## $nyrs
+## [1] 31
+## 
+## $spsname
+## [1] &quot;TrawlCaught_Scalefish&quot;
+</code></pre>
+
+<p>Just as with the <strong>spm</strong> model Fitting an <strong>aspm</strong> model entails first finding initial parameter estimates that lead to predicted cpue time-series that approximate the observed series. Thus, one might begin something like this and uses aspmLL to determine the negative log-likelihood (-verLL), then <em>dynamics</em> to calculate the dynamics of the <strong>aspm</strong>, and finally <em>plotASPM</em> to illustrate the quality of fit to help decide whether changes are required to the initial guesses.:</p>
+
+<pre><code class="r">pars &lt;- c(12.9,0.25)
+aspmLL(pars,infish=fish,inglb=glb,inprops=props)
+</code></pre>
+
+<pre><code>## [1] 386.8754
+</code></pre>
+
+<pre><code class="r">fishery &lt;- dynamics(pars,infish=fish,inglb=glb,inprops = props)
+plotASPM(fishery)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk guessparam"/></p>
+
+<p><strong>Figure 1.</strong> The outcome of a first guess at a two parameter version of the <strong>aspm</strong>. clearly the fit is very poor and the strong trends in the predicted cpue, the log-normal residuals, and the annual harvest rate bumping up against the built-in upper limit of 0.85 across numerous years, provide a strong indication that the initial guess at unfished average recruitment parameter (<em>R0</em>) is too small. Try increasing it slowly to see its effect on the model fit to the data.</p>
+
+<p>Once reasonable starting values have been found for the parameters (\(R_0\) the unfished average recruitment and \(\hat\sigma_{I}\), the standard deviation associated with fitting the observed cpue) then an attempt at fitting the model to the data formally can be made using code something like this:</p>
+
+<pre><code class="r">pars &lt;- c(13.7,0.19)
+ans &lt;- fitASPM(pars,infish=fish,inglb=glb,inprops=props)
+outoptim(ans) # a tidier way of printing the list output from optim
+</code></pre>
+
+<pre><code>## $par         :  13.69138 0.189471 
+## $value       :  -7.582633 
+## $counts      :  55 NA   iterations, gradient
+## $convergence :  0 
+## $message     :
+</code></pre>
+
+<pre><code class="r">fishery &lt;- dynamics(ans$par,infish=fish,inglb=glb,inprops = props)
+</code></pre>
+
+<p><strong>Table 1.</strong> The output from the <em>fitASPM</em> function and the <em>dynamics</em> function.</p>
+
+<pre><code class="r">kable(fishery,digits=c(0,3,3,3,3,3,4,4,3))
+</code></pre>
+
+<pre><code>  Year   Catch   PredC     SpawnB   ExploitB   FullH     CPUE   PredCE   Deplete
+</code></pre>
+
+<hr/>
+
+<p>0     1985                   5643.463   6216.733                               1.000
+1     1986   112.9   112.9   5547.856   6119.538   0.018   1.2006   1.2731     0.983
+2     1987   206.3   206.3   5381.150   5955.372   0.034   1.3547   1.2532     0.954
+3     1988    95.7    95.7   5325.183   5910.455   0.016   1.0585   1.2196     0.944
+4     1989   183.1   183.1   5208.120   5799.303   0.031   1.0846   1.2104     0.923
+5     1990   147.4   147.4   5136.775   5735.954   0.025   0.9738   1.1876     0.910
+6     1991   198.9   198.9   5034.632   5638.377   0.035   1.0437   1.1747     0.892
+7     1992   102.1   102.1   5027.222   5638.064   0.018   0.7759   1.1547     0.891
+8     1993   235.5   235.5   4914.029   5523.921   0.042   1.0532   1.1546     0.871
+9     1994   247.8   247.8   4801.433   5414.330   0.045   1.2840   1.1312     0.851
+10    1995   426.8   426.8   4552.038   5165.789   0.079   1.3327   1.1088     0.807
+11    1996   448.0   448.0   4310.173   4933.418   0.087   1.4014   1.0579     0.764
+12    1997   577.4   577.4   3991.273   4623.718   0.117   1.4687   1.0103     0.707
+13    1998   558.5   558.5   3726.747   4374.663   0.121   1.4493   0.9469     0.660
+14    1999   427.9   427.9   3607.166   4275.655   0.098   1.1420   0.8959     0.639
+15    2000   509.3   509.3   3447.541   4121.138   0.119   0.9957   0.8756     0.611
+16    2001   502.4   502.4   3314.139   3991.335   0.122   0.8818   0.8440     0.587
+17    2002   429.6   429.6   3256.173   3938.955   0.108   0.7635   0.8174     0.577
+18    2003   360.2   360.2   3264.635   3951.252   0.091   0.7668   0.8066     0.578
+19    2004   306.2   306.2   3319.664   4007.258   0.077   0.7198   0.8092     0.588
+20    2005   195.7   195.7   3460.581   4149.242   0.049   0.5997   0.8206     0.613
+21    2006   210.0   210.0   3578.106   4256.624   0.051   0.6336   0.8497     0.634
+22    2007   287.3   287.3   3615.276   4278.291   0.067   0.6936   0.8717     0.641
+23    2008   214.2   214.2   3698.766   4357.911   0.050   0.8894   0.8761     0.655
+24    2009   260.6   260.6   3733.374   4387.110   0.060   0.8644   0.8924     0.662
+25    2010   272.2   272.2   3751.418   4403.947   0.062   0.8442   0.8984     0.665
+26    2011   356.9   356.9   3696.506   4346.717   0.081   0.8427   0.9019     0.655
+27    2012   345.0   345.0   3654.393   4308.073   0.079   0.8849   0.8902     0.648
+28    2013   282.7   282.7   3669.508   4331.070   0.066   0.9964   0.8822     0.650
+29    2014   285.1   285.1   3686.377   4351.140   0.066   0.9804   0.8869     0.653
+30    2015   237.8   237.8   3742.829   4410.295   0.055   0.9570   0.8911     0.663
+31    2016   233.3   233.3   3799.558   4464.794   0.053   1.0629   0.9032     0.673</p>
+
+<p>Note the predicted catches are identical to the observed catches. The catches are assumed to be known accurately and so as to ensure a close match between the predicted and observed catches <em>aspmLL</em> has a simple sum-of-squared deviations penalty built into it (try <em>aspmLL</em>, without brackets in the console). This is usually sufficient to force the solution to generate a close match once plausible parameter values are found. Note that with respect to reproduction only the average unfished recruitment is estimated. In its current form the <strong>aspm</strong> cannot take into accoutn strong and weak cohorts; this remains a very simple model of the dynamics. </p>
+
+<p>To visualize the output of the model fitting we can plot some of the variables from the fishery information generated by the <em>dynamics</em> function.</p>
+
+<pre><code class="r">plotASPM(fishery,CI=NA)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" title="plot of chunk plot2pars" alt="plot of chunk plot2pars" style="display: block; margin: auto;" /></p>
+
+<p><strong>Figure 2.</strong> The outcome of fitting a two parameter age-structured production model to the available data. Included is a plot of the catch history, the predicted spawning biomass, the CPUE, the harvest rate, the log-normal residuals for the cpue, and the predicted depletion.</p>
+
+<p>The two-parameter model manages to capture the main cpue trends but fails to capture some of the more obvious and more rapid consistent changes in cpue (<strong>Figure 2</strong>). The example fishery in question was known to have been fished prior to 1985 so in the year the data begin to be available the stock can be expected to be depleted to some extent. Thus, an alternative might be to fit the model using three parameters. The first approach, with only one parameter of real interest, required data from the beginning of the fishery. However, there are many fisheries for which data are only available after the fishery has been running for a number of years. In such cases it is necessary to estimate the level of depletion and its effect upon recruitment and thus requires two parameters of interest to the dynamics. The first is, as before, the unfished recruitment level, \(R_0\), but then we use a parameter that defines the initial depletion at the start of the observations (\(D_{init}\). If this parameter is present in <em>pars</em> a search is made for the constant harvest rate that when applied to the initial unfished stock leads to the predicted initial depletion level, only then does the model fitting proceed. Any initial depletion will influence the recruitment depending on the assumed steepness of the stock recruitment relationship, which is assumed to be a Beverton-Holt relationship. The <em>dataspm</em> data set is not particularly suited to a two-parameter model even though that arrangement was able to provide a result; these assessments should not be done automatically, it always takes some background knowledge to ensure that any methods or choices applied are valid.</p>
+
+<p>As an alternative two-parameter example, the deep water fishery data <em>data(fishdat)</em> was a fishery with catch data from the very start of the fishery, which means it is better suited to using a simple two parameter model</p>
+
+<pre><code class="r">data(fishdat)
+fish &lt;- fishdat$fish
+glb &lt;- fishdat$glb
+props &lt;- fishdat$props
+pars &lt;- c(14,0.3)
+ans &lt;- fitASPM(pars,infish=fish,inglb=glb,inprops = props)
+str(ans)
+</code></pre>
+
+<pre><code>## List of 5
+##  $ par        : num [1:2] 13.983 0.296
+##  $ value      : num 3.61
+##  $ counts     : Named int [1:2] 71 NA
+##   ..- attr(*, &quot;names&quot;)= chr [1:2] &quot;function&quot; &quot;gradient&quot;
+##  $ convergence: int 0
+##  $ message    : NULL
+</code></pre>
+
+<p>The output contains the estimates of the optimum parameters, the final log-likelihood estimate, the number of iterations it needed to find the optimum, and some diagnostic information. The statement <em>convergence: int 0</em> implies the solution appears valid, and no warning messages is also encouraging; but see later concerning how to test the robustness of such model fitting. If we put the fitted optimum parameters into the function <em>dynamics</em> we can see the time-series of the more important population variables implied by the model fit.</p>
+
+<pre><code class="r">fishery &lt;- dynamics(ans$par,infish=fish,inglb=glb,inprops = props)
+print(fishery)
+</code></pre>
+
+<pre><code>##    Year    Catch    PredC     SpawnB   ExploitB       FullH  CPUE    PredCE    Deplete
+## 0  1985       NA       NA 18014.3343 17692.9772          NA    NA        NA 1.00000000
+## 1  1986 3924.912 3924.912 14248.1815 13994.0086 0.221834458    NA 7.5534926 0.79093578
+## 2  1987 5117.988 5117.988  9428.1199  9259.9319 0.365727087    NA 5.9743275 0.52336765
+## 3  1988 4722.200 4722.200  5129.7882  5038.2780 0.509960552    NA 3.9532537 0.28476146
+## 4  1989 1365.128 1365.128  4105.4943  4032.2565 0.270951303 1.490 2.1509436 0.22790153
+## 5  1990  801.567  801.567  3641.6743  3576.7106 0.198788694 1.849 1.7214525 0.20215425
+## 6  1991  625.407  625.407  3369.2234  3309.1199 0.174855356 1.501 1.5269706 0.18703014
+## 7  1992 1108.241 1108.241  2706.9928  2658.7028 0.334905056 2.997 1.4127308 0.15026882
+## 8  1993  964.409  964.409  2201.0514  2161.7869 0.362736665 1.415 1.1350544 0.12218333
+## 9  1994  800.618  800.618  1858.5047  1825.3509 0.370350097 1.139 0.9229109 0.10316811
+## 10 1995  962.399  962.399  1413.4866  1388.2714 0.527240531 0.700 0.7792795 0.07846455
+## 11 1996 1180.349 1180.031   845.1272   830.0510 0.850000000 0.469 0.5926814 0.04691415
+## 12 1997  297.003  297.003   925.2859   908.7798 0.357812970 0.303 0.3543657 0.05136387
+## 13 1998  316.131  316.131  1007.3327   989.3629 0.347863150 0.356 0.3879766 0.05591839
+## 14 1999  210.529  210.529  1165.5750  1144.7824 0.212792499 0.390 0.4223792 0.06470264
+## 15 2000  169.337  169.337  1365.7195  1341.3565 0.147920693 0.439 0.4887309 0.07581293
+## 16 2001  200.843  200.843  1559.2787  1531.4628 0.149731266 0.489 0.5726524 0.08655767
+## 17 2002  255.735  255.735  1722.4298  1691.7035 0.166987404 0.431 0.6538127 0.09561440
+## 18 2003  217.502  217.502  1916.3659  1882.1799 0.128569815 0.520 0.7222227 0.10638006
+## 19 2004  283.110  283.110  2064.4787  2027.6505 0.150416013 0.777 0.8035410 0.11460200
+## 20 2005  264.607  264.607  2225.4211  2185.7219 0.130499311 1.322 0.8656453 0.12353613
+## 21 2006  139.316  139.316  2484.5623  2440.2403 0.063739124 1.412 0.9331292 0.13792141
+## 22 2007   28.571   28.571  2838.9456  2788.3017 0.011708273    NA 1.0417883 0.15759370
+## 23 2008    3.331    3.331  3224.2908  3166.7728 0.001194634    NA 1.1903828 0.17898473
+## 24 2009   13.859   13.859  3608.1895  3543.8231 0.004376380    NA 1.3519599 0.20029547
+## 25 2010   21.440   21.440  3988.2950  3917.1480 0.006049963    NA 1.5129303 0.22139564
+## 26 2011   31.426   31.426  4358.7341  4280.9788 0.008022674    NA 1.6723103 0.24195921
+## 27 2012   17.253   17.253  4737.4411  4652.9301 0.004030153    NA 1.8276371 0.26298175
+## 28 2013   35.940   35.940  5093.6492  5002.7837 0.007724165    NA 1.9864307 0.28275534
+## 29 2014   22.087   22.087  5453.1544  5355.8757 0.004414942    NA 2.1357903 0.30271196
+## 30 2015   16.206   16.206  5806.4445  5702.8635 0.003025836    NA 2.2865325 0.32232357
+</code></pre>
+
+<p>The use of <em>fitASPM</em> is basically shorthand for using <em>bestL &lt;- optim(pars, aspmLL, method=&ldquo;Nelder-Mead&rdquo;, infish=fish, inglb=glb, inprops=props, control=list(maxit = 1000, parscale = c(10,1)))</em> twice in a row. Examine its code by using <em>fitASPM</em> without brackets in the R console window.</p>
+
+<p>Note that the harvest rate in 1996 appears to have bumped up against the upper limit of 0.85 hard wired into the R-code (try typing <em>dynamics</em> into the R console without brackets to see the code). So that 1180 tonnes catch in 1996 was likely to be damaging. However, the predicted catch is only slightly less than the reported catch so this spike in harvest rate has some support in the data. Plotting up the fishery results enables the visualization of the impact of the fishery and he effect of cutting back catches.</p>
+
+<pre><code class="r">ceCI &lt;- getLNCI(fishery[,&quot;PredCE&quot;],ans$par[2])
+plotASPM(fishery,CI=ceCI)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" title="plot of chunk addCI" alt="plot of chunk addCI" style="display: block; margin: auto;" /></p>
+
+<p><strong>Figure 3.</strong> The outcome of fitting a two parameter age-structured production model to the deep-water fishery data. Only the CPUE with confidence intervals are plotted.</p>
+
+<p>The modelling suggests that once catches were reduced to an average of about 246 t between 1997 - 2005 the stock began to very slowly recover, then, after catches were further reduced from 2007 onwards (due to a deepwater closure and cessation of targeting) the rate of recover was predicted to have increased. The model predicts that the stock breached above the 0.2\(B_{0}\) limit reference point in about 2010. However, extrapolation beyond the data must always be treated with a great deal of caution. The uncertainty about the catch rates is relatively large, especially because of the records from 1992, 2005, and 2006 deviate so much from the rest of the trend. Without confirmation from other data the predicted recovery from 2007 onwards is purely dirven by the predictions from the fitted model. The predicted recovery should not be accepted on the basis of the model fit alone, there needs to be other data confirming such a recovery.
+Whether the predicted recruitment from the model actually happened would require auxilliary information or data to corroborate the prediction. With Orange Roughy, because the fishery was so short lived and they only mature between 31 - 35 years of age, the biology suggested that the fishery is still receiving unfished recruitment levels, which can be expected to decline once the recruits produced from the depleted population are supposed to begin entering the fishery. 
+However, given the lowest point of the stock is predicted to have occurred in 1996 the expected minimum in recruitment should only occur in about 2026 - 2030.  </p>
+
+<p>One way of estimating confidence intervals around the cpue is to use the standard deviation estimates from the likelihood fitting of the CPUE (parameter 2) and set up log-normal error bars, but later we will consider bootstrap percentile confidence intervals as an alternative.</p>
+
+<p>It is not surprising the bounds on the predicted CPUE become vary wide in the regions where there are no cpue data. But even where there are data the bounds are wide. A better estimation of the uncertainty is more likely to be generated by the bootstrap analysis. The variation expressed is primarily driven by the elevated values in 1992 and in 2005 and 2006. The period from 1989 - 2006 is assumed to related to when aggregations were not being targeted but occasionally, no doubt, smaller aggregations would have added heterogeneity to the cpue data. Certainly given this uncertainty it remains questionable whether one could validly claim that the likelihood of the limit reference point being passed was high based only on these data. It would be best to test the robustness of this result to the initial conditions by trialing the model fit using a large array of initial parameter values just to see whether the optimum result was repeatable and stable. We will consider this after introduicing the three parameter models.</p>
+
+<h2>A three parameter model</h2>
+
+<p>Returning to the <em>dataspm</em> data set it is possible to use a three parameter model to fit this data accepting that the observations began when the stock had already been fished and would be expected to be partially depleted. There are details that need attention if we are to assume such a model structure. These are mathematical models and they can exhibit mathematical behaviour, such as negative recruitment or initial depletions much greater than 1.0, unless such behaviour is controlled. To avoid initial depletions &gt; 1.0 we have implemented a slightly different maximum likelihood function so we should use <em>aspmPENLL</em> instead of <em>aspmLL</em>. In this case, where the initial depletion is estimated to be a long way below 1.0 it might not matter, but such penalties can stabilize even such supposedly safe parameter sets.</p>
+
+<pre><code class="r">data(dataspm)
+fish &lt;- dataspm$fish
+glb &lt;- dataspm$glb
+props &lt;- dataspm$props
+pars &lt;- c(14,0.19,0.6) # Fit 3 par__aspm__with penalty
+# pars &lt;- c(13.2794439,0.1731744,0.4933178) # for a second time through
+scalepar &lt;- magnitude(pars)
+bestL &lt;- optim(pars,aspmPENLL,method=&quot;Nelder-Mead&quot;,
+              infish=fish,inglb=glb,inprops=props,
+              control=list(maxit = 1000,parscale=scalepar))
+outoptim(bestL)
+</code></pre>
+
+<pre><code>## $par         :  13.33983 0.1746212 0.6233444 
+## $value       :  -10.1113 
+## $counts      :  116 NA   iterations, gradient
+## $convergence :  0 
+## $message     :
+</code></pre>
+
+<pre><code class="r">fisheryPen &lt;- dynamics(bestL$par,infish=fish,inglb=glb,inprops=props)
+ceCI &lt;- getLNCI(fisheryPen[,&quot;PredCE&quot;],bestL$par[2])
+plotASPM(fisheryPen,CI=ceCI)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" title="plot of chunk threepars" alt="plot of chunk threepars" style="display: block; margin: auto;" /></p>
+
+<p><strong>Figure 4.</strong> The outcome of fitting a three-parameter age-structured production model to the slope fishery data. </p>
+
+<p>Once again the model fails to capture the more rapid changes in the predicted dynamics but does capture the general trends through time (<strong>Figure 4</strong>). Unlike the two-parameter model it predicts a final depletion close to 50% rather than 60% but this time suggests the starting depletion was about 65% rather than 100%. However, the -ve log-likelihood in this case is -9.95 rather than -7.58 as with the two-parameter model, indicating a slightly better fit (an improvement &gt; 1.96 for each additional parameter suggests a better fit; Venzon and Moolgavkar, 1988).</p>
+
+<p>Despite the improved fit to the data the confidence intervals around the CPUE remain very large. Thus, using the three parameter model one should test the robustness of this fit to the initial conditions to determine whether or not the outcome is stable following the model fitting or whether there is variation (uncertainty) and if so how much. </p>
+
+<h3>Testing the Robustness of the Model Fit</h3>
+
+<p>The sensitivity of the model fit to the initial parameter values is important to explore to gain greater confidence that the solution one finds is a global optimum rather than some local minima on the log-likelihood surface.</p>
+
+<p>To test for robustness of the model fit we can use the original optimal model parameters or the original guesses, add variation to them, and re-fit the model. This process should enable an analysis of the stability of the modelling outcomes. If the optimum parameters are used then add more variation to enusre the parameter space is covered. The first parameter is \(Log \left( R_0 \right)\) so to simplify the selection of random variations away from the original it helps to return that parameter to the linear scale and only when finished return it to the log-scale.</p>
+
+<pre><code class="r">  set.seed(12335)  # to get repeatable results, normally you would not do this
+  data(fishdat)
+  fish &lt;- fishdat$fish
+  glb &lt;- fishdat$glb
+  props &lt;- fishdat$props
+  pars &lt;- c(14,0.3)
+  out &lt;- robustASPM(pars,fish,glb,props,scaler=20,N=15,console=FALSE)
+  str(out)
+</code></pre>
+
+<pre><code>## List of 3
+##  $ results: num [1:15, 1:9] 14 14 14.1 14 14 ...
+##   ..- attr(*, &quot;dimnames&quot;)=List of 2
+##   .. ..$ : chr [1:15] &quot;9&quot; &quot;15&quot; &quot;5&quot; &quot;11&quot; ...
+##   .. ..$ : chr [1:9] &quot;iLnR0&quot; &quot;isigmaCE&quot; &quot;iLike&quot; &quot;LnR0&quot; ...
+##  $ range  : num [1:2, 1:9] 13.94 14.09 0.27 0.32 3.76 ...
+##   ..- attr(*, &quot;dimnames&quot;)=List of 2
+##   .. ..$ : NULL
+##   .. ..$ : chr [1:9] &quot;iLnR0&quot; &quot;isigmaCE&quot; &quot;iLike&quot; &quot;LnR0&quot; ...
+##  $ medians: Named num [1:9] 13.993 0.3 9.119 13.983 0.296 ...
+##   ..- attr(*, &quot;names&quot;)= chr [1:9] &quot;iLnR0&quot; &quot;isigmaCE&quot; &quot;iLike&quot; &quot;LnR0&quot; ...
+</code></pre>
+
+<pre><code class="r">  print(round(out$results,4))
+</code></pre>
+
+<pre><code>##      iLnR0 isigmaCE    iLike    LnR0 sigmaCE   -veLL          MSY           B0 Iters
+## 9  14.0342   0.2896   9.1190 13.9828  0.2956  3.6060 2.398520e+02 1.801433e+04    71
+## 15 13.9921   0.3033   4.4020 13.9828  0.2956  3.6060 2.398520e+02 1.801433e+04    71
+## 5  14.0548   0.2849  11.6265 13.9828  0.2956  3.6060 2.398520e+02 1.801433e+04    71
+## 11 13.9933   0.3068   4.5018 13.9828  0.2956  3.6060 2.398519e+02 1.801433e+04    71
+## 8  13.9766   0.3035  10.2718 13.9828  0.2956  3.6060 2.398520e+02 1.801433e+04    71
+## 12 14.0141   0.2831   7.0278 13.9828  0.2956  3.6060 2.398520e+02 1.801434e+04    71
+## 2  14.0086   0.2700   6.7780 13.9828  0.2956  3.6060 2.398520e+02 1.801433e+04    69
+## 10 14.0922   0.3079  13.6757 13.9828  0.2956  3.6060 2.398519e+02 1.801433e+04    69
+## 14 14.0120   0.2807   6.8539 13.9828  0.2956  3.6060 2.398519e+02 1.801432e+04    69
+## 4  13.9846   0.2905   3.7588 13.9828  0.2956  3.6060 2.398519e+02 1.801432e+04    69
+## 7  14.0376   0.3032   8.9842 13.9828  0.2956  3.6060 2.398519e+02 1.801433e+04    67
+## 6  13.9664   0.2975  49.1355 42.1764  0.6601 18.0638 4.209864e+14 3.161862e+16    23
+## 13 13.9367   0.3014 314.8062 41.2043  0.6601 18.0638 1.592507e+14 1.196069e+16    25
+## 3  13.9598   0.3202  91.5760 46.7922  0.6601 18.0638 4.254969e+16 3.195738e+18    21
+## 1  13.9393   0.3002 292.8867 41.3141  0.6601 18.0638 1.777260e+14 1.334829e+16    21
+</code></pre>
+
+<p>Starting with the deep water fishery data <em>fishdat</em> we find that 11 out of 15 generate one solution, which appears to be optimum, while the remaining four, which all began with highly unlikely first guesses (<em>iLike</em>, the initial likelihood was large) all gave implausible outcomes. It would be sensible to explore this lack of robustness further by using many more iterations. However, given the variation in the cpue data this is not a surprising result. </p>
+
+<p>If we test the robustness of the model fit to the <em>dataspm</em> data set (a three parameter model) similar outcomes arise.</p>
+
+<pre><code class="r">  set.seed(12235)  # to get repeatable results, normally you would not do this
+  data(dataspm)
+  fish &lt;- dataspm$fish
+  glb &lt;- dataspm$glb
+  props &lt;- dataspm$props
+  pars &lt;- c(14,0.2,0.6)
+  out &lt;- robustASPM(pars,fish,glb,props,scaler=15,N=10,console=FALSE)
+  print(round(out$results,3))
+</code></pre>
+
+<pre><code>##     iLnR0 isigmaCE iDepl  iLike   LnR0 sigmaCE  Depl   -veLL     MSY       B0 Iters
+## 10 13.936    0.210 0.632 -0.915 13.279   0.173 0.493 -10.370 343.813 3738.220   102
+## 7  13.929    0.197 0.579  1.439 13.279   0.173 0.493 -10.370 343.813 3738.218   261
+## 6  13.835    0.210 0.574 -0.809 13.279   0.173 0.493 -10.370 343.814 3738.235   104
+## 9  14.101    0.183 0.643  3.226 13.279   0.173 0.493 -10.370 343.811 3738.194   112
+## 4  14.065    0.231 0.507  4.645 13.279   0.173 0.493 -10.370 343.810 3738.182   183
+## 2  13.968    0.173 0.588  4.602 13.280   0.173 0.493 -10.370 343.821 3738.306   181
+## 1  14.038    0.208 0.599  1.665 13.282   0.175 0.493 -10.367 344.677 3747.614   186
+## 3  14.037    0.200 0.531  5.706 13.301   0.174 0.549 -10.291 351.443 3821.180   125
+## 8  14.090    0.183 0.583  5.738 13.301   0.174 0.548 -10.291 351.437 3821.115   119
+## 5  13.921    0.180 0.597  2.106 13.315   0.174 0.568 -10.271 356.195 3872.848   124
+</code></pre>
+
+<pre><code class="r">  print(round(out$range,3))
+</code></pre>
+
+<pre><code>##       iLnR0 isigmaCE iDepl  iLike   LnR0 sigmaCE  Depl   -veLL     MSY       B0 Iters
+## [1,] 13.835    0.173 0.507 -0.915 13.279   0.173 0.493 -10.370 343.810 3738.182   102
+## [2,] 14.101    0.231 0.643  5.738 13.315   0.175 0.568 -10.271 356.195 3872.848   261
+</code></pre>
+
+<p>Here we find that four final negative log-likelihoods differ from the optimum, although in this case the differences are not too far from the optimum. Very slight differences in the parameters even with the optimum -veLL lead to small differences in the derived statistics such as MSY and \(B_0\). Once again the variation in the cpue data is what leads to this instability. Whatever the case it is to be hoped that these examples illustrate that one should never accept the final result of fitting a model even if the diagnostics look acceptable (the plot, the -veLL value, and optim gives convergence = 0). Without testing the robustness it is possible that one is settling for only a local minima. This is one reason why it is usually a good idea to run a fitting routine twice, once from the initial parameter guesses, the second time from the solution of the first time.</p>
+
+<p>When testing the robustness ideally one would run very many trials (at least 100 to allow for proportional attribution of variation), in which case it becomes a reasonable proposition to plot the results. The correlations between the parameters can also be calculated (they tend ot be very high).</p>
+
+<pre><code class="r">cor(out$results[,c(&quot;LnR0&quot;,&quot;Depl&quot;,&quot;-veLL&quot;,&quot;MSY&quot;)])  # correlations between outputs
+</code></pre>
+
+<pre><code>##            LnR0      Depl     -veLL       MSY
+## LnR0  1.0000000 0.9926413 0.9882819 0.9999921
+## Depl  0.9926413 1.0000000 0.9986348 0.9922690
+## -veLL 0.9882819 0.9986348 1.0000000 0.9877160
+## MSY   0.9999921 0.9922690 0.9877160 1.0000000
+</code></pre>
+
+<pre><code class="r"> #plotprep(width=8,height=6)
+intensity &lt;- 2   #  how many points overlapping = maximum colour
+pairs(out$results[,c(&quot;LnR0&quot;,&quot;Depl&quot;,&quot;-veLL&quot;,&quot;MSY&quot;)],pch=16,
+      col=rgb(1,0,0,1/intensity),font=7,font.labels = 7)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" title="plot of chunk correlations" alt="plot of chunk correlations" style="display: block; margin: auto;" /></p>
+
+<p><strong>Figure 5.</strong> The correlations between outputs from repeated trials starting from different initial parameter values. Usually one would use many more trials than the example of 10, then these plots might be more informative. Histograms of these values might also indicate the variation present. </p>
+
+<h3>The Production Curve and Statistics</h3>
+
+<p>Using two runs through the <em>optim</em> function each time the median of the different trials is very similar to the optimum model fit so we will use those values to determine the production curve predicted by the model We can then use that to estimate the biomass at the target (default = 0.48\(B_{0}\)) and at the limit reference point of 0.2\(B_{0}\). In addition, by estimating the yield expected at those reference points and dividing that through by the biomass at those reference points we can calculate the target and limit harvest rate reference points. The contents of <em>prod</em> can be used to determine other statistics such as the sustainable yield over the range of the current predicted depletion levels.</p>
+
+<pre><code class="r">data(dataspm)
+fish &lt;- dataspm$fish
+glb &lt;- dataspm$glb
+props &lt;- dataspm$props
+pars &lt;- c(13.75,0.189667,0.6) # Fit 3 par__aspm__with penalty
+bestL &lt;- optim(pars,aspmPENLL,method=&quot;Nelder-Mead&quot;,
+              infish=fish,inglb=glb,inprops=props,
+              control=list(maxit = 1000, parscale = c(10,1,0.1)))
+# two times through
+bestL &lt;- optim(bestL$par,aspmPENLL,method=&quot;Nelder-Mead&quot;,
+              infish=fish,inglb=glb,inprops=props,
+              control=list(maxit = 1000, parscale = c(10,1,0.1)))
+par &lt;- bestL$par
+print(par)
+</code></pre>
+
+<pre><code>## [1] 13.2794896  0.1731791  0.4934525
+</code></pre>
+
+<pre><code class="r">prod &lt;- getProductionC(exp(par[1]),fish,glb,props,
+                      Hrg=c(0.01,0.45,0.005),nyr=50)
+head(round(prod,3),6)
+</code></pre>
+
+<pre><code>##       Harvest   SpawnB ExploitB   Yield Depletion
+## 0       0.000 3738.229 4117.963      NA     1.000
+## 0.01    0.010 3503.303 3896.605  38.966     0.937
+## 0.015   0.015 3393.404 3792.697  56.890     0.908
+## 0.02    0.020 3288.158 3692.955  73.859     0.880
+## 0.025   0.025 3187.299 3597.142  89.929     0.853
+## 0.03    0.030 3090.581 3505.037 105.151     0.827
+</code></pre>
+
+<pre><code class="r">tail(round(prod,3),6)
+</code></pre>
+
+<pre><code>##       Harvest  SpawnB ExploitB   Yield Depletion
+## 0.425   0.425 425.115  702.960 298.758     0.114
+## 0.43    0.430 414.797  688.847 296.204     0.111
+## 0.435   0.435 404.686  674.933 293.596     0.108
+## 0.44    0.440 394.777  661.213 290.934     0.106
+## 0.445   0.445 385.066  647.683 288.219     0.103
+## 0.45    0.450 375.547  634.339 285.452     0.100
+</code></pre>
+
+<pre><code class="r">anspen &lt;- prodASPM(prod,target=0.48,console=FALSE,plot=TRUE)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" title="plot of chunk production_curve" alt="plot of chunk production_curve" style="display: block; margin: auto;" /></p>
+
+<pre><code class="r">round(anspen,3)
+</code></pre>
+
+<pre><code>##      MSY     Bmsy     Hmsy     Dmsy       B0    targC    Htarg    Btarg 
+##  343.814  908.060    0.265    0.243 3738.229  281.745    0.125 1809.504
+</code></pre>
+
+<p><strong>Figure 6.</strong> Production curves for the optimum fitting three parameter age-structured production model fitted to the slope fishery data in <em>dataspm</em>. The target in this case is 0.48\(B_{0}\) designated by the vertical green lines. The results contained within <em>anspen</em> are used as labels. In this case it is suggesting that \(B_{MSY}\) is down at 0.243\(B_{0}\) so in this case using a target of 0.48\(B_{0}\) means that the harvest rate, and presumably effort, would be halved, the stock kept at a much higher presumably more resilient level, and the catch only reduced on average by about 18%.</p>
+
+<h3>A Phase Plot</h3>
+
+<p>The final part of age-structured production modelling would entail generating a phase plot of predicted biomass against the predicted harvest rates. The previous functions and analyses will provide all the information we require to feed into the function <em>aspmphaseplot</em>.</p>
+
+<pre><code class="r">#   plotprep(width=7,height=5.5)
+fisheryPen &lt;- dynamics(bestL$par,infish=fish,inglb=glb,inprops=props)
+outs &lt;- aspmphaseplot(fisheryPen,prod,anspen,Blim=0.2,fnt=7)
+</code></pre>
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAGwCAMAAABy/YdMAAACAVBMVEUAAAAAAA0AACgAADoAAGYAAP8ADVEAKIEAOjoAOmYAOpAAOv8AZpAAZrYAZv8AzQANAAANDQANDSgNKFENKIENUbwoAAAoDQAoKCgogbwogf86AAA6ADo6AGY6AP86OgA6Ojo6OmY6OpA6Ov86Zjo6ZmY6ZpA6ZrY6Zv86kLY6kNs6kP9RDQBRDQ1RKA1RUYFRUbxRvP9mAABmADpmAGZmAP9mOgBmOjpmOmZmOpBmOv9mZjpmZmZmZpBmZrZmZv9mkGZmkJBmkLZmkNtmkP9mtttmtv+BKACBKA2BKFGBUSiBgf+BvP+B//+QOgCQOjqQOmaQOv+QZjqQZmaQZpCQZv+QkGaQkJCQkLaQkNuQkP+QtpCQtraQttuQtv+Q27aQ29uQ2/+2ZgC2Zjq2Zv+2kDq2kGa2kJC2kLa2kP+2tra2ttu2tv+229u22/+2/7a2/9u2//+8UQ28USi8UVG8gSi8///T09PbkDrbkGbbkJDbkP/btmbbtpDbtrbbttvbtv/b25Db27bb29vb2//b/7bb/9vb////AAD/ADr/AGb/OgD/Ojr/Omb/OpD/ZgD/Zjr/Zmb/ZpD/Zrb/gSj/gVH/kDr/kGb/kJD/kLb/kNv/tmb/tpD/trb/ttv/vFH/vIH/vLz/25D/27b/29v/2////4H//7b//7z//9v///9/ii+tAAAACXBIWXMAAAsSAAALEgHS3X78AAAez0lEQVR4nO2diZ8cxXXHG8+OIgnLS2KDEw3HIgUJFudgkRYsFDDCEjnMECQFsB2Id4VkwrHWkEQaDi2HZHYQwQFHgdiLbGd2xdD1V6arz+ruqu6qPqpfdb/f57Mzu7PVr6r7O/Xq6KrXFkF1UlbTBUA1IwTfUeWCt1DtkxT4Sr5fKEhC8B0Vgu+oQIGfaMqHo/nmstai1PkheE8InicEb7wQvEAInicEb7xgg0fpE4LvqATg1589+virsUSodokLfnPgzub2TjCJdEiuje/3+9VnjW28o9mDL1ymunTHKEqkQ1Lg+/06yCN4guDbKLlePWhXj+CLSHY4t36O7dxNqMC89/swymH+O7dCf/DK67FvBxwFywhQZcSt8WPrwEnn4u4aMYngyKGO5EuL27lb2jmwdq2R6UEmERh5i4ZAFclEccEfGk1vXyFkCrJX7zGvmjx27qjeOe6+rc4xC/N0SAl8tYVC8K4ubzgv9tOLTCIdUgBfNXkEz+iD15lEOiQDPuSN4FWkAn62NAewjY94V0oewTNaf5VJBEUseEjlMk1lbsvaQ8ua+8WSZe0+aznOYRw4iFrF0EbyJVRurn7VYT1b2uP9oh08juZLqNzduRj48pJo4+Osrcru12AbT4qCH1v055sne8fPWIvFSqcMvro7dQieSt7Vu+n8Gu/8zJZ2fzice324e6NQ6RB8bSp2W1bO1bvg99hDyr6Y40fwtani5dXawSe7c9jGSwo2+Hyl+vHYsS+oMuDZcXzw03vWsh4fFO3d5YlTwZF8MRm1oYLXpCP4YgIFPq+NrxE8tvE8IXjjZTZ4bie+GvIInicw4HmUEbyMOgJefXiP4HmC03HmUU5/Vs9mm3YJwXdUCL6jAgW+UBvP+8zhrrg8B9t4nmCD53zo7bJSKTaC58lE8IpL8hA8T6aBL7DnAsHzBBx86tPgbwV3j+B5gt2rF4NXbei7pHaDx7X3QrURfOxPJM8XKPBF2/jkavvEXzLosY3nyWjwcuQRPE9mg5dy9wjekf3yBiFbp17YYBPpUGHweTvq8skjeOJtjJ8OesdO6456VRv4fHeP4IkHftVaJLNHmUQwVBQ8juiTEoA/P+ytkE3dETHyVRg8jusS4nbuts8dHbg7IDeiRDAkhCcRIQXJsxL16u31DbK+xiTSoeJtvFRoHIe8cIEGtvGh7HevsIl0qGbwbhwFAXkETzUdWHevgYx6lVWdc5NkrclC8MTbDLmwcNxM8JkNOYIPJRrOEXLpufaBFy+4R/BUY2csRyu+7li2+SoLPv//XRG/c7f1vDuQe8uYcXz0LwQvp6ybNNpj2eYrF3w+VyTvKgM8xM5dxkaJcuCxjWekPZatzDbpHPIS9ZmbBMF7auYRowi+Nhn+3Llc8FINOC8RgiegnzSZtRkSwWcINngJZZF1d8yVNdIVgXL1EkLwFUnUuZOLZatf2eAliSL47OFcLJEOqT2Thvc/yZKm02Ebz5Mp4KXjYCD4VoFXiICSsoLgeULwxgvBC8wgeJ4gdYIraeOxY28e+KqQdZ08gu+oQIFXeZp0acXtYBvPE4I3XgheYAjB84TgjVcLwNfj6xE8T7A6wPVU+a4pAr+1PHf+1JowERwh+CoUgreHj98xmn2f+zRgWBeoOl5dJh+Cnz34L4deP8N/Nmg72/iYpQ638WO6gGWRexQs8LWQ7zB4sv3KK/wmHsGbLzH42cOOl5/9mHtUa8FHproK3j73yO33HD36iAltPIIvIHGNd5t46yD3KGCd3yo7453t2Edt/Fvcyh4mAiQEX4HiM3f2FWEiSELy5ZUYzgVtPNDdsr5qAN/dNn62dM/dR29/wv0Q7G5ZXwheWRngD/3szePvuJ07wLtlPVX6AFGPfHfBk9W580PP1UMHX+2jYzsP3r5MbD96LXBXX/Ezg13yHQZP5U7fUYHdLUtVB/jOKZy5+xunstvs3bkGghjLquKHhHeSvA9+lY7ktpYtL0J9U0GMpVUtqg6Dt4eLZLxgWfe53AEHMfZVMSrHXEfb+NmhkVPB3Qi2BHQQ40CVV/kug/d/SHNBjJsC75jrKvgln7BfxxsKYozga5MI/IP3HKV65A72Fp32IMaNgSedBe+P38NxvPsH3F599eDhnWLNytpQoT2IsYKq79d3TALwzdyWVRBW+ZLiggc+V09VNaj5loOXWmUL/e4cVfXg201eapUtgm+f5FbZGuDqZcir3MuZb3krn3FbNrbKtpnbstWCV7p722HwVPxFthB79Xmc+r6qs9gyRZ27h/b9csnaI0wETblPlETwmWIWW45W9/g3aXiJwCmTUwHula/vgC1mefXC3OjNF4WJdEiljZcAr1KH5ytf0QVLGW389itr9vqrjUbEqA68V3sRfKgM8ABi4FQIXv6ZVJ66Cx5CDJxmwVPyre3gZUzZGhMDJ1A2JNnnTvqaD45qKXnYMXDUVCn46DCYJ1u5mAmc5mPgqKkW8J0hH787l5EInuoB3xXyTBv/0+cEFb5Dbbx3ZAvJZ8/VX1o4aE6vXoZ8IfCtJJ/Vq/9z54R3twu8PPnYhdG4lUCXsiJiWHe/wMXePfAtJJ8FfkV4VOfAt8/dZ4HfLezWA70GNXXrg8OBnnVFYlbg0A3y7xoQtjxSJpuS4NtOnlmIMegt3NXslK2qagXfcvKMq9+50DR4xTa+SvC8vXNtIp9xd456+YZdffXgpclzN01aVmtu1OYstmw4pKkqeAFWn5ZSlefvlm3PLfq8u3NmuXo+1oAWgmckFdLUftlx+FunoukcBG+85EKaLs2NpoPesdMjJhFIVQdeoLZwTyty9UxIUwf8qrVIZo8yiUCqujZeLYcWKAIfhTR1wJ8f9lbIJtyIGIG4XCy2Q4/k+fLABxsp/Pftc0cHc6PZUnCvDmwbXx14YQycloCXjHrl1P/1DbK+xiTSoerA04+Zlj5fnQW/c+Eua6dpM3eZ4P1NVGXBt4R8RtQrN8BhbOFduJPOZPB9BE+VMYETbZicPbTgagA3pGkoDhbnIwSflFRIU/d+TRPgC0gMXtHXK2XRAvE6d8FGqtkhzbFsC4gPPvhYccusdBYtkA+eG9I0lgiossGHtb/iLFqgqHNHFe/cAY5lGyoHvPSyyaxYtm0gn3NbNibADypglKaSAC833Y7gGWmPZVsd+MjXS95gQ/CeYD9ilFUOeNk7qx0Fb586ynbuTAhwGChFJTFFXwH4NpCXmqtvLKRpISWpxMFXspSiBeBT8mv8aW/k7r23CHw1S2jaCz6Qv9iyKVdfSHzw/ltFa6daSD4CH39+PPhYtqGqAZ/9TBrzwcs9P56XSIeqBy8dyarD4KPFlimBBp+kEgcvO2eb8xQq48lLPT8+JQTfZvDM8+N5iXSoCvDMZG3sJUcdBp8h2GddCXi1TFqgELw7eWfebVmC4IuJ6dU3v3euoGJQOOCroNZe8O6k3dTEXr0APNOvk6CW+2xZw8ln7I+nrn7ZxF59fIMbgucqM9yZo/u4R8EGH5udY35lRnL503fdBR/cp+HJAPD+3UX2SxCBl5i47S74LCF4Yjr5DPBT8XBungruez/2t4PY/9uqNB8HPJDzrey96HDOHjoH/GJJFAG3EbFVO1pgi/sqUora+H8c+UFQ+Im4WnW+KLOlPc6Bz9dUvjJK9PYtMik4bAgslC0QJEXgT96uPnMXgh/zH1GpqFJcUkq07NbElSBxfhtvNvi84ZziOD4AP3bc/Ycn6SNtxtZ9Z9xfi/j/WsETBM8qPpwTjOnE4N2u9B4X/mZvZdUNo/H+vrO9lXFPHAxbqFrBTyZZ5CXAG02+4uFcUOO9dv7nyxQ8dfwgwBNehUfwvqSGc1Lg7eGJVR+8093v8RdxZati8EnrJV19S8GXauNdV28dH/rgwzhpoJQJXkomk0+qzHCOGcefsRangwNneyfGluPjx+zabEAqh72t4IsM5wRyvQegWZ2q1ErwVS7EGB8kZJN/az9T9bbxmZJp400mLzucK7dbdrpsWfvED64UCsHXprx49R54k3bLVqRug98aNrtbFsHXpqx19efuanqbNHjw5pIXgXepW7t+eqjRwAjwZSz4lDzwtEvf+wEzlmtmtyx8tQ08+eDksY0opikvEcpVa8hHbfylU3eMjAtiXJkk23hjwWf26u1LD3mdO4OCGFelToMnZPpwo0GMDQBvKnmp+/GNBTFG8LWpjevqKxGCZ6Q9iLERMpR8Uhng9QcxNkIteQZhVo3XHsTYBLXlqaMC8OYEMa5I0m28oeDl2ni8LStWm8F3+u5cLlYjuSN4kYILI1OhTUSPrl4gBfBGOnvpJ1R09bZsW8GnBGrmDoKkPD2Cb6HyZ+bawB0WeABtvAx4Eydt8SaNQCz4vNNF8FULwdcmBC9QDnhB8ExzhOAFygYf78gj+FaKXXEU4DYffEoIPikGfMgbwXdAPPDmt/EpgQIPpY1Pg4+tODURPOw2Hgj42BOJgw8RfI0CBz7kjeBrFVjw9DX26AvjhOAFEoGPnmmE4FuudoJPCcEnxUJmwScebGa6EHxSCfDR3wi+NkFp45PgE48tNBE87DYeJHh2TEdi7yYJwQuUWIHD1nEEX7tggifRvC2JvZskBC9QBnh2xp59M0qwwYNQO8GnxAPvRq3fOvXCBpuoM2KYdw08jYgwHfSOnR4xiTqjFHjmZnxiXGeyROBXrcXoCSPda+MTUzac/xkmud2yS3Pnh70VstnJcGcdBk+2zx0duI+Q24gS6RAI8O7jdgXgRR/Dl3Sv3l7fIOtrTCIdAgB+PnzSstVJ8J2NgdNt8N2NVz8/H5Bnb8sz4n8fDBS3c9dUKJTmheA7Cj5y9fH1laFaDT5y9d0LYpwHXuQJoAt2DBwA4IPhXFfBu9IexBgE+EDdBa8/iDEo8ETQxGls+iqUUo3XHsQYwdcm2BM4sCQIbmUm+JRwAkckYTi7VkQ7w3G8UCLw7YhvCAs8qDa+XeBhz9WDAi9y6W0G3+kJnFyZyB34KlszwBspBC8Qguepk736lgvBd1QIvqMCBR7b+NoEu41H8LUJwQuE4HlC8MYLwQuE4HnCXn37hOA7KgTfUYECj218bYLdxiP42mQCeHvorgI5TsbW3IiMgzXe9Wo+nnXrZAJ4QlZ7K9NBb4Ws6gYfZW0/ryNXfTIGvD30wWsSA97NerxHV856BBt8ILfa7d6g4Km7H1vfPNk7fsZa1Jf12LJ2f3jScrIcW/edcX+1dm/kH26OYIJ3LvOuNeLW+FU3GM+Hw7nXhzquvJ/1bGkP2eyteJm/v+9sb2XsuIE2CSb43srWknUiAr/HHlL2Ghy/nzUFT+yfL7uZEzJG8LUqbONpp85xsxrBh228lzXFbQ9PrPrgnd5+74n6Mtcg2G08A9651FprPAOeZu26euv40Acfhno0VrA3TcbG8U8Q2sM66/70nrWsxwd19u5i43incjtdyengwNneibFF+/js9hIjhTtpBMqeuZstmd6rlwtpinvnEhofdGrDQU1FqUWwwYPVdNmy9mmbTNIiUK4epU+gNk2i9Algr74R4W1ZKuzVt06wO3cIvjYheIEQPFUqlq0mTTTnx2i+uay1KH1+PPDJXn1KTXTzMU9tWYWxbKWPqFOYp66soli2skfUKsxTW1brQmff8gvSlTxzJ3BkjqhdmGf9WSUncPKP0CDMs/asUuP43CN0CPOsPat88KhWSNXVbw50LUOaLbvrXrwM2dc69SbdSaM5z3cGdL2X3jyVJ3BmSyc2dW1xseliei9D9rXOLDctuspKb55fHreH8dy0XGTFVmWTbjbRVOVd8F6G7GudWb61trU0N9KbJyFb3g4OrXmqgh/TMi3WUpKUXPBehuxrzbmu7tGd52zJOqj/PBF8ItOnV7TnubVsnUDwkRoB/+UJor/2JXKDCL7lbTyZ/ZjMXtPe3trDE9Db+Jb36umG2d6K1jyds1yb7tM8kiDqc0X6xvHTgUXDoWgd39LtUg3keUD7fAWunu6sEHxHheA7KgTfUSH4jqqL4KNQhpoC6UFUF8FHoQwRfMcUhDLssDoL3gtl6NT4NwduyJ0gjqLthjacLdMZPPrSdFHrUkfBW2EURTo3TiNdBXEUvdCGm7s/PLnivjRd1Epkv3sl+VFHwUdRFL1bYUxUNS+04fKBNeK+mK7pwLp7jbNBpqPgoyiKSfBeaENin7t9xXsxW3QEs7BwHMF7YqIoOn7edfUBeC+04eZ9G6uL7kvTRS0pj/il5xA8SURR3PA7d0EcRS+04Zf/vLxr5L40Xdiy8uLw2qnQoF0E3y1tPe8GZ3wLwXdPH7yS3vSO4FuusXWAPmkh1WYh+HZrtrRzQKcspsmgrPlhy1FGKgB/aDSlY9Jpci+kGHzCAsoohfTe8Z6nlnq2k8yDCi6WL0cFJtpko/5iRFwv0069/fSiMIHYAvwzlQ6SF7PRr7wcGk1Ig/eUCmYF5tEkZTTxpHRM31VNBWpeCWwFpmwNAq8Avx+p1pI1piS2VDArmejV0H2bj1uGvmsjAl4IPfTL4Yrhyg9mJRO9GviZsqTzyF9MwVZHD/xyeAq5iiKcgAliXFhpzhnkeVW8lR4/HMfHeN440h/901osAeEm5CQAJw5lIXgB4hai54N/5od3jsiRDTZBKNNcPReygHwGXQXyoC9HIL6rP7xyeO2l/iiWIFLqmTSQz5Tn1vsCZ++wzSiHNHrIlyMU27mLeL5NT/L+ZIIwYSPPpCkmDmEXIPf7QD/PsNUqdy/AduO119YECcx6/FiSbzg4534h2AE/r/PfIvR8bEeol/8JNwGvcwfXtyXYBZ00+sr5SkxSStqTIg/3cjDigf/Xx+6897HHHuO38RH46O4c2DONo2O65mnyPveYDQF69XIoqxnwXhPfv5efwCRXz3BLjsgS5D3u6eNb6+752N4eZSUw5kmTETXOQJyijv0hGPelPm4H+QxsV2IJtq9fv37Debdfdob3W6deCB+bDdfVR8y4rBjyEfdUOQpUeqCXIy5BjXcrCNPGb33s9nU+ueHev5sOesdOjyILMM90wlZ4XvqQPFPfuR1ERfIwL0dCfPCH793/2J0/jBJMP/rNtvO2/cVHNyj4Vbpd9NFMCwCUxz3kx+niJwwV6uPBlgD8ytsn3os6d/anN/x/TH/tgD9Pd46HEfaggo818II0Lvk87u3s4/GxvdQfPRNz9WT2CX35rfOyfe7ogAZX3L0RWoDm2+KD8ExC/cTATlAOpT4etMvBlaC+Oh2795i7c/YXn3702WeffXrV+6+9vkHWgw3CwMCnJ18ya+YkUd8z7ulLu3tIl0OoDEd9hK3xn7vX8r/VLGgWf8ItxyNLr8ZqWUPPn7mjtTlxd+5/VSw0Iv4sa3Vw2jWk52B7iY7kbhzp3xzej7f/M+rc8SzA8G2iO62VlUOWPIzLoe7qn7mfvL2/379/I0rADOd4FkCcaWKe3Zdqjcwuh5xHAXE5CoA/7Lj4w/2VWIJoAoc5FNYWKkGFrzqTtrh7EXj/Jz1lK2OhCVXi6KXyaQd5HvhgsYJo6VXKAgTf5vBI21Ankl+OfHcP4XLk2uCBpzfjHd1pEngKI2WjQE2UKAeXvKKNCopR0gaH65ER+27IFiqep6/NBafRm+fsA2z2aacTf+nUsVTAPjPAa+XOIV9vM6+221NOIfjhCTeOp7UoSDBlpmyTCZr3bS6HhI1CLGTLkTU/WPXlmPTjKmIjpbC+jnf/cumJy5ffF0TEmLnDuat8C42D5y2iKFYHpcuRnCVksqv4ciS5y6KXBD9b2vXwzy5fPuvebU2vsrXp3Tn7N1kWmhN/iFV3sxtHX1d+k+hM/Dnpak4twra1HKyhTK2ytamb/0Ts6psWdxG1hu6WBvIczNWgZ7FtnTvqBTlMrrKdBXe9rvItNOzqg6vv2ShHXbEc3Nu/FV6OCfdU5MgXWnMXX2Vr+7dm7PQtGmDgS9d11XLEV3wUsyEuBp+7ZKVXAz87FDC/Ek/wxa+cH96cbeOuPraWVv/0aYReIm+1wmWczaTsqYbbpB9acDXwOnf7Nw73v8UmmNFFGLNfZVhoTAH4Jqj7BQjJ56RUK2Dm+ZRt6UPwSzsZ8IdHL30rfpNm9tHvtrfinTsgW6hSnraBcsTJi2yoDcVEbp7JNNtcjqv3Nfu+d/vdc/WH9/dHb7/oJfATumuvfsuzAAR85t72usvhk/dACGy4yzol0V/M5054I/y4jSzxHfWN19bIe6/FI2JsffHrbXkL2sQ4+maL4ZMXJXCxyI/C5ZJNstFniR/gMB0DJ1penWdBs+Q7VnWXI5O8W93DCZhcawXbbwX0/ACHyRg4ieXVSQsNuvqowuu4l5ldkgnxvoAcG351nxAx+YI1l2fF+1XN1XsBDtMxcNjl1ZACHLK9qmbBR+Q56wK86h4kS3Mt7LHT8jIjKjFwns2KgRMurwa1Px6Ko3clcvYx7hzyVc8/hOizJAhwyI+BY98AE+cutncCBncB+aBXxyZju3ge9Upvufcl0PPj3B0ZpRJ87s/VNx0DZxKX+5l/ERt29YyzTyh58z4i3xcwKnsqYbaJKxWJD/7wiz9ZiyeYTT775LOPaK8+6er77DkUfr8omc4fwDjnUU2+RcsheA/KldQklS4+EEvauVj6fBL5TyaJ/wtcPSHv7b+XHcfPrm5/8btNv3PXXCiU9DcXjqOn4pSPU9tIWOkFAVgqUeK7l/gvP8Dh4XudlDfHJnD+66r9sX9btsEAh/y1dTpLkKMUSD73qMmqvUT54Bkd7u9/cSOewN4mtrujQi2WreyJyTVq2dwbb+OpJsFWLlHjyqYU/q+xUCgrwgRqnTvpr3TchOCgHEcPAnyy91msSjcG/uYRm8D+3J26+ZK+8AIcClXszDO8Y+ozSA28L21OvJQEK3Bon/69qI3f9CbpN3m9ejH4YI5S9G/xUfyDwDfwJomP7cid/f37mcWWn3gfz666b5Jhy318IvBxvBfjn/LI53KH4eobX4kmZ0Pk6vez4H3g4bvzVXj3CmOBm4U/myEin3CITIeIOTptLzVMZlIAgWYyeNfLR67e/tgbwH9Ol15NB9bda8xzygSuPpzFEtRe3xuw1T75B8deFneUiuRCmm5O6F1ZdwWOPbSshYXjeeBdTj4bbu2dRL95v7PY+yRJPuIuf26oDEmGNN10sdC+nUf80nMs+LRTCblz63zYCgR/xdx+UJNjR8lwB+KmTXb1yZCmjq5fv+79Mu7RQb49zADvQgwccZo86w3C9NEN1j6HvFR9BwLNaPDxkKZxbXnbbd4SuvoY9zR5hnuylQ4/8d7YBoGgn69UsiFNFSwEYMMP4uQT3iCCH/sexMgj9+olF9I0xwLrVObnY9XdlXcbyv014Q2S3fT4QQHysMOQLSBu2lhXf3jEvquBn3eVghSSp9zTCPlDs5C8JHco0MwFH1S/Aq4+AJ9K5ZFPVvdsBeS9g+SOQUmKB/7m/fv7N7Mzd4JD0zdp5n1xUve9pUBKky5hnUfulUsQ9Yq6efmoV6FTyQDvkRdy5/ulqI+fVwqxDTUBsdHUcC5s54u18fyEmXOsGfvNpOs7EGjGgueHNJWzkAVeoXVPHIR+vnpV3Lmj6KspWCjkXovaEtK0ZTYacfXqIU2NOFOjbDTWuasyAQqiEHxHVQl4I3ybUTYMcfVGnKlRNmCCb3ALFaoq8QMj8BN4AhUYAVVUwt2yqQS+mt4f3w0b+lx9imcyAUkltFAtkDR4nmuowNtX0WC0yIbGYsi6epLcQiWfRZaAXHAoNrQWI8VT+nDTzhS+DQDFQPBN2ABQDATfhA0AxUDwTdgAUAwE34QNAMUQHf7Vd60dFwj5j1tu2kvIG5b1nQvk97dY1q0KpmMmvNdr7ms5G6rFIOTfbrnpgSDva8XKwbGhXA7GhH9apYrh21C/HJ6E35uvv7eDst77xk0PXLP2fnXbXoqf5iovxoT36li59o2nlMqXsqFejGvOMHbHBS9v9rWcDeVysCa80ypXDM+G+uXwlQ3evdy3vmHt/fp7e7/+K1XbrAn39ZpLr5wN9WL8+4/+cNs3nvLyZl/L2VAuB2vCO61yxfBsqF8OXzLgv7rtpj/9zoXf33LTt3+kZDsFzXstZ0O9GI6e/KOy5UjZKFKO0AR7WuVsFLocVNngr1m30iycdmTHBepmCrh6z4T3WhQ8a0O9GI6Rv3igNPikjQLliEwUB5+0UeRyuMoGT/7W+mMnlz956knLcUn/9/dqxWRMeK9FwbM21ItByP/QDmpJ8EkbBcoRmSgOPmmjyOVwlQPecS07Lryx44JfwDcKgHdNeK9F23jWhnoxyFd/Tb76h3JtfNqGejkYE0Xb+LQN9WL4ygH/h+/S/qvTn7CcHvWfff13Sn1QxoT3WrRXz9pQLwZ5knrDcr36tA31cjAmivbq0zYKXA5PIvB0eEjPzhm/k6//kg4VnU++fUHFNGvCe1UfuKZtKBeDDngcG+XG8WkbyuVgTXinVa4Yng31y+ELV1Z1VAi+o0LwHRWC76gQfEf1/46MPuLDxiq2AAAAAElFTkSuQmCC" title="plot of chunk phaseplot" alt="plot of chunk phaseplot" style="display: block; margin: auto;" /></p>
+
+<p><strong>Figure 7.</strong> Phase plot of predicted biomass vs predicted harvest rate for the optimum fitting three parameter age-structured production model fitted to the slope fishery data in <em>dataspm</em>. The target in this case at 0.48\(B_{0}\) is designated by the green lines, while the limit reference points are designated by the red lines. </p>
+
+<p>The phase plot (<strong>Figure 7</strong>) suggests that the biomass is a little below the target but the fishing mortality is very close to its target. In addition the fishery appears relatively stable at present indicating it is not declining. In the SAFS system this fishery could defensibly be claimed to be sustainable although the uncertainty in the analysis would need to be noted explicitly.</p>
+
+<h3>Characterization of Uncertainty</h3>
+
+<p>When only fitting to CPUE it is possible to use many replicate bootstrap samples followed by reanalysis to generate a detailed characterization of uncertainty. The following example code illustrates the approach. First we need to obtain the optimum solution.</p>
+
+<pre><code class="r">#  library(datalowSA)
+library(datalowSA)
+data(dataspm)
+fish &lt;- dataspm$fish
+glb &lt;- dataspm$glb
+props &lt;- dataspm$props
+pars &lt;- c(13.5,0.18,0.5)
+bestL &lt;- fitASPM(pars,fish,glb,props,callfun=aspmPENLL)
+fishery &lt;- dynamics(bestL$par,fish,glb,props)
+kable(fishery,digits=c(0,1,1,3,3,3,3,3,3))
+</code></pre>
+
+<pre><code>  Year   Catch   PredC     SpawnB   ExploitB   FullH    CPUE   PredCE   Deplete
+</code></pre>
+
+<hr/>
+
+<p>0     1985                   1844.493   2201.515                              0.493
+1     1986   112.9   112.9   1905.994   2281.700   0.051   1.201    1.075     0.510
+2     1987   206.3   206.3   1897.882   2279.923   0.090   1.355    1.115     0.508
+3     1988    95.7    95.7   1986.162   2377.159   0.042   1.058    1.114     0.531
+4     1989   183.1   183.1   2005.773   2396.363   0.077   1.085    1.161     0.537
+5     1990   147.4   147.4   2059.854   2478.526   0.062   0.974    1.171     0.551
+6     1991   198.9   198.9   2082.974   2518.471   0.080   1.044    1.211     0.557
+7     1992   102.1   102.1   2193.351   2640.207   0.041   0.776    1.230     0.587
+8     1993   235.5   235.5   2193.924   2633.084   0.089   1.053    1.290     0.587
+9     1994   247.8   247.8   2180.129   2615.893   0.094   1.284    1.286     0.583
+10    1995   426.8   426.8   2019.514   2445.747   0.163   1.333    1.278     0.540
+11    1996   448.0   448.0   1851.779   2279.545   0.183   1.401    1.195     0.495
+12    1997   577.4   577.4   1599.185   2025.283   0.253   1.469    1.114     0.428
+13    1998   558.5   558.5   1389.703   1821.336   0.276   1.449    0.989     0.372
+14    1999   427.9   427.9   1310.586   1759.085   0.235   1.142    0.890     0.351
+15    2000   509.3   509.3   1188.966   1631.779   0.290   0.996    0.859     0.318
+16    2001   502.4   502.4   1082.984   1518.972   0.308   0.882    0.797     0.290
+17    2002   429.6   429.6   1038.707   1473.711   0.283   0.764    0.742     0.278
+18    2003   360.2   360.2   1049.518   1485.656   0.244   0.767    0.720     0.281
+19    2004   306.2   306.2   1099.426   1537.854   0.206   0.720    0.726     0.294
+20    2005   195.7   195.7   1227.569   1673.737   0.127   0.600    0.751     0.328
+21    2006   210.0   210.0   1336.509   1772.734   0.125   0.634    0.818     0.358
+22    2007   287.3   287.3   1368.358   1784.647   0.162   0.694    0.866     0.366
+23    2008   214.2   214.2   1441.816   1857.291   0.120   0.889    0.872     0.386
+24    2009   260.6   260.6   1471.771   1884.847   0.140   0.864    0.907     0.394
+25    2010   272.2   272.2   1489.268   1907.019   0.144   0.844    0.921     0.398
+26    2011   356.9   356.9   1441.380   1859.230   0.187   0.843    0.932     0.386
+27    2012   345.0   345.0   1407.928   1830.919   0.186   0.885    0.908     0.377
+28    2013   282.7   282.7   1430.753   1865.664   0.154   0.996    0.894     0.383
+29    2014   285.1   285.1   1457.524   1897.810   0.153   0.980    0.911     0.390
+30    2015   237.8   237.8   1522.403   1968.634   0.125   0.957    0.927     0.407
+31    2016   233.3   233.3   1588.181   2033.085   0.119   1.063    0.962     0.425</p>
+
+<p>Having run the model through optim twice inside <em>fitASPM</em> the optimum fit is used to characterize the dynamics using <em>dynamics</em>. The basis of the bootstrap sampling is that the log-normal residuals (<em>CPUE</em>/<em>PredCE</em>) are randomly sampled with replacement with each such bootstrap then being multiplied by the optimum model&#39;s predicted CPUE. If, for example, we take the original residuals and multiply them by the original predicted CPUE we would re-generate the original observed CPUE. All we are doing in the bootstrap procedure is reordering the residuals by randomly resampling them with replacement. The &#39;with replacement&#39; bit implies that some values may be omitted and others may be repeated more than once.</p>
+
+<p>Such bootstrap samples are generated within <em>bootASPM</em>. This function generates replicate numbers of optimal fitting parameters in <em>param</em>, estimates of unfished biomass in <em>B0</em>, and finally a matrix of five time-series of Spawning Biomass, Fully selected harvest rate, each bootstrap CPUE series, the optimum predicted CPUE, and the depletion level through time. Here we are only running 100 replicates so as to speed the process, but in a real analysis one might use at least 1000 replicates</p>
+
+<pre><code class="r">reps &lt;- 20
+starttime &lt;- Sys.time()
+answer &lt;- bootASPM(fish,glb,props,bestL$par,iter=reps)
+</code></pre>
+
+<pre><code>## 20
+</code></pre>
+
+<pre><code class="r">Sys.time() - starttime
+</code></pre>
+
+<pre><code>## Time difference of 11.90492 secs
+</code></pre>
+
+<pre><code class="r">str(answer,max.level=1)
+</code></pre>
+
+<pre><code>## List of 3
+##  $ result: num [1:20, 1:32, 1:5] 1844 2141 2530 1356 2143 ...
+##   ..- attr(*, &quot;dimnames&quot;)=List of 3
+##  $ B0    : num [1:20] 3738 3821 3901 3622 3970 ...
+##  $ param : num [1:20, 1:3] 13.3 13.3 13.3 13.2 13.3 ...
+##   ..- attr(*, &quot;dimnames&quot;)=List of 2
+</code></pre>
+
+<p>Once the bootstraps are completed there are multiple ways of displaying such information. Initially one can generate classical percentile confidence intervals from the bootstrap replicates (Haddon, 2011).</p>
+
+<pre><code class="r">yrs &lt;- fishery[,&quot;Year&quot;]
+nyrs &lt;- length(yrs)
+par(mfrow=c(2,2),mai=c(0.45,0.45,0.05,0.05)) 
+par(cex=0.85, mgp=c(1.35,0.35,0), font.axis=7,font=7,font.lab=7)  
+label &lt;- names(answer$result[1,1,])
+label &lt;- label[-3]  # remove CPUE
+numvar &lt;- length(label)
+bootvar &lt;- answer$result[,nyrs,label[1]]
+for (i in 1:numvar) { # i=3
+   bootvar &lt;- answer$result[,nyrs,label[i]]
+   quantCI &lt;- quantile(bootvar,probs=c(0.05,0.5,0.95),na.rm=TRUE)
+   hist(bootvar,breaks=30,main=&quot;&quot;,xlab=label[i],col=&quot;red&quot;)
+   abline(v=quantCI,col=c(4,4,4),lwd=c(1,2,1))
+}
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk finalyear"/></p>
+
+<p><strong>Figure 7.</strong> Histograms of the final years&#39; spawning biomass, fully selected harvest rates, predicted CPUE, and the stock depletion level. Of course 20 replicates is completely inadequate but each bootstrap replicate can take a significant time (note the time taken in the example). One thing that can be noted is the asymmetrical percentile confidence bounds.</p>
+
+<p>With only 20 replicates no conclusions can be drawn but the plots still illustrate the principle behind the bootstraps. The percentile confidence intervals can illustrate the uncertainty in the assessments and the potential risk of falling below limit reference points.</p>
+
+<pre><code class="r">pickvar &lt;- &quot;Deplete&quot;
+bootvar &lt;- answer$result[,,pickvar]
+yrs &lt;- as.numeric(colnames(bootvar))
+nyrs &lt;- length(yrs)
+quantCI &lt;- t(apply(bootvar,2,quants))
+kable(quantCI,digits=c(3,3,3,3,3,3))
+</code></pre>
+
+<pre><code>     2.5%      5%     50%     90%     95%   97.5%
+</code></pre>
+
+<hr/>
+
+<p>1985    0.239   0.279   0.530   0.664   0.690   0.712
+1986    0.265   0.306   0.544   0.668   0.688   0.708
+1987    0.276   0.317   0.541   0.654   0.669   0.689
+1988    0.313   0.354   0.562   0.665   0.675   0.695
+1989    0.331   0.372   0.566   0.659   0.666   0.686
+1990    0.357   0.397   0.579   0.664   0.667   0.687
+1991    0.372   0.411   0.584   0.661   0.666   0.685
+1992    0.410   0.449   0.612   0.681   0.687   0.704
+1993    0.418   0.456   0.612   0.674   0.684   0.700
+1994    0.423   0.460   0.607   0.664   0.677   0.693
+1995    0.388   0.422   0.563   0.619   0.637   0.653
+1996    0.350   0.383   0.518   0.574   0.596   0.612
+1997    0.288   0.320   0.451   0.509   0.535   0.552
+1998    0.238   0.268   0.395   0.455   0.485   0.502
+1999    0.223   0.251   0.373   0.433   0.465   0.483
+2000    0.195   0.222   0.340   0.401   0.436   0.454
+2001    0.170   0.196   0.312   0.374   0.411   0.429
+2002    0.159   0.185   0.300   0.363   0.401   0.420
+2003    0.161   0.187   0.303   0.366   0.405   0.424
+2004    0.171   0.199   0.317   0.380   0.419   0.438
+2005    0.202   0.231   0.351   0.413   0.452   0.470
+2006    0.227   0.259   0.380   0.442   0.480   0.497
+2007    0.232   0.265   0.389   0.451   0.489   0.506
+2008    0.247   0.283   0.408   0.470   0.509   0.525
+2009    0.252   0.289   0.417   0.479   0.517   0.534
+2010    0.255   0.293   0.421   0.484   0.522   0.539
+2011    0.242   0.280   0.409   0.472   0.512   0.528
+2012    0.234   0.272   0.400   0.463   0.504   0.520
+2013    0.241   0.280   0.406   0.468   0.509   0.525
+2014    0.250   0.289   0.412   0.474   0.514   0.531
+2015    0.270   0.308   0.429   0.490   0.529   0.545
+2016    0.289   0.328   0.446   0.505   0.543   0.559</p>
+
+<pre><code class="r">ymax &lt;- getmaxy(bootvar)
+par(mfrow=c(1,1),mai=c(0.45,0.45,0.05,0.05)) 
+par(cex=0.85, mgp=c(1.35,0.35,0), font.axis=7,font=7,font.lab=7)
+plot(yrs,bootvar[1,],type=&quot;n&quot;,lwd=1,col=0,ylim=c(0,ymax),
+     panel.first = grid(),xlab=&quot;&quot;,ylab=pickvar)
+for (i in 1:reps) lines(yrs,bootvar[i,],lwd=1,col=&quot;grey&quot;)
+lines(yrs,quantCI[,&quot;50%&quot;],lwd=2,col=&quot;red&quot;)
+arrows(x0=yrs,y0=quantCI[,&quot;5%&quot;],y1=quantCI[,&quot;95%&quot;],
+       col=2,lwd=1,length=0.035,angle=90,code=3)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk plottimeseries"/></p>
+
+<p><strong>Figure 8.</strong> The bootstrapped trajectories of stock depletion of the dataspm data set. Note that 20 replicates are far too few to provide sensible or valid percentile confidence intervals.</p>
+
+<p>The output from the <em>bootASPM</em> function includes the bootstrap optimum parameters. These can be used along with the <em>fish</em>, <em>glb</em>, and <em>props</em> objects from the data set used to generate productivity curves and determine target catches, MSY, and other fishery outputs for each set of parameters. This means that percentile confidence intervals can be generated for such assessment outputs. </p>
+
+<h3>Management Advice with aspm</h3>
+
+<p>If working with a species that requires on-going management then it is necessary to produce advice with respect to acceptable catches that will lead to a sustainable fishery or whatever other management goal is in place for the fishery. To generate such advice formal harvest strategies are required to allow the outputs from the assessment to be converted into a recommended biological catch. This may then be modified by fishery managers taking into account potential rates of change within a fishery or social or economic drivers of management decisions. It was possible to put forward suggestions for new harvest strategies using the catch-MSY method because none were available previously and that put forward was only a suggestion for a possible consideration. Putting forward a proposed harvest control rule for the spm approach without consultation with jurisdictional fisheries managers could produce suggestions incompatible with a particular jurisdictions objectives. There are harvest control rules that can be used once limit and target reference points are agreed upon and these can be utilized where considered appropriate. The SAFS process, however, does not currently require a target reference point even though most harvest control rules do require one.</p>
+
+<h2>References</h2>
+
+<p>Dick, E.J. and A.D. MacCall (2011) Depletion-based stock reduction analysis: a catch-based method for determining sustainable yields for data-poor fish stocks. <em>Fisheries Research</em> <strong>110</strong>(2): 331-341</p>
+
+<p>Haddon, M. (2014) Tier 4 analyses in the SESSF, including deep water species. Data from 1986 – 2012. Pp 352 – 461 in Tuck, G.N. (ed) (2014) <em>Stock Assessment for the Southern and Eastern Scalefish and Shark Fishery 2013. Part 2.</em> Australian Fisheries Management Authority and CSIRO Marine and Atmospheric Research, Hobart. 313p.</p>
+
+<p>Haddon, M., Klaer, N., Wayte, S., and G. Tuck (2015) <em>Options for Tier 5 approaches in the SESSF and identification of when data support for harvest strategies are inappro-priate.</em> CSIRO. FRDC Final Report 2013/200. Hobart. 115p.</p>
+
+<p>Kimura, D.K. and J.V. Tagart (1982) Stock Reduction Analysis, another solution to the catch equations. <em>Canadian Journal of Fisheries and Aquatic Sciences</em> <strong>39</strong>: 1467 - 1472.</p>
+
+<p>Kimura, D.K., Balsiger, J.W., and Ito, D.H. 1984. Generalized stock reduction analysis. <em>Canadian Journal of Fisheries and Aquatic Sciences</em> <strong>41</strong>: 1325–1333.</p>
+
+<p>Little, L.R., Wayte, S.E., Tuck, G.N., Smith, A.D.M., Klaer, N., Haddon, M., Punt, A.E., Thomson, R., Day, J. and M. Fuller (2011) Development and evaluation of a cpue-based harvest control rule for the southern and eastern scalefish and shark fishery of Australia. <em>ICES Journal of Marine Science</em> <strong>68</strong>(8): 1699-1705.</p>
+
+<p>Martell, S. and R. Froese (2013) A simple method for estimating MSY from catch and resilience. <em>Fish and Fisheries</em> <strong>14</strong>: 504-514</p>
+
+<p>Venzon, D.J. and S.H. Moolgavkar (1988) A method for computing profile-likelihood-based confidence intervals. <em>Applied Statistics</em>, <strong>37</strong>: 87-94.</p>
+
+<p>Punt, A.E., Butterworth, D.S. and A.J. Penney (1995) Stock assessment and risk analysis for the South Atlantic population of albacore <em>Thunnus alalunga</em> using an age-structured production model <em>South African Journal of Marine Science</em> <strong>16</strong>: 287-310. <a href="http://dx.doi.org/10.2989/025776195784156476">http://dx.doi.org/10.2989/025776195784156476</a></p>
+
+<p>R Core Team (2017). <em>R: A language and environment for statistical computing.</em> R Foundation for Statistical Computing, Vienna, Austria. URL <a href="https://www.R-project.org/">https://www.R-project.org/</a>. see also <a href="https://cran.r-project.org/">https://cran.r-project.org/</a></p>
+
+<p>RStudio (2016)  <a href="http://www.rstudio.com">www.rstudio.com</a></p>
+
+<p>Schaefer, M.B. (1954) Some aspects of the dynamics of populations important to the management of the commercial marine fisheries. <em>Bulletin, Inter-American Tropical Tuna Commission</em>, <strong>1</strong>: 25-56. </p>
+
+<p>Schaefer, M.B. (1957) A study of the dynamics of the fishery for yellowfin tuna in the Eastern Tropical Pacific Ocean. <em>Bulletin, Inter-American Tropical Tuna Commission</em>, <strong>2</strong>: 247-285</p>
+
+<p>Walters, C.J., Martell, S.J.D. and J. Korman (2006) A stochastic approach to stock reduction analysis. <em>Canadian Journal of Fisheries and Aquatic Sciences</em> <strong>63</strong>: 212 - 223.</p>
+
+<h2>Appendix: Age-Structured Production Model Equations</h2>
+
+<h3>Initiation of an Age-Structured Model</h3>
+
+<p>At equilibrium, in an un-exploited population, the age-structure is assumed to be the result of natural mortality acting alone upon constant average unfished levels of recruitment. The equilibrium result would be a stable age distribution determined by those constant average recruitments and natural mortality. At the start of a time series, let us say in year 1, this is defined as:</p>
+
+<p>\[
+N_{a,1} =
+\begin{cases}
+N_{0,1} = R_0 & a = 0
+\
+N_{a-1,1}e^{-M} & 1 \leq a < a_{x}
+\\
+N_{a_{x}-1,1} e^{-M}/(1-e^{-M}) & a = a_{x}
+\end{cases}
+\]</p>
+
+<p>where \(N_{a,1}\) is the numbers of age \(a\), in year 1, \(a_{x}\) is the maximum age modelled (the plus-group), and \(M\) is the instantaneous rate of natural mortality. In a pre-exploitation population there is no fishing mortality and the final component the above equation (where \(a\) = \(a_{x}\)), is referred to as the plus group because it is the series which combines ages \(a_x\) and all older ages that are not modelled explicitly. This requires the inclusion of the \((1 – e^{-M})\) divisor to force the equation to be the sum of an exponential series. The \(N_{0,1}\) is the constant unfished recruitment level, \(R_0\). Sometimes this also has an \(e^{-M}\) term, depending on the timing of spawning. If the natural mortality term is included then the estimated \(R_0\) value will be somewhat higher than if it is omitted (by \(1/e^{-M}\)), so it is usually simpler to omit it. This stable age distribution can also be obtained by first calculating the numbers-at-age for a recruitment of 1, or the numbers-at-age per recruit, and then multiplying that vectors of numbers by \(R_0\)., which is how it is implemented in <em>datalowSA::dynamics</em></p>
+
+<h3>Biological Characteristics</h3>
+
+<p>Length-at-age of fish is defined by the von Bertalanffy growth function:</p>
+
+<p>\[ L_a = L_{\infty}{(1-e^{-k(a-t_0)})} \]</p>
+
+<p>where \(L_a\) is the mean length at age \(a\), \(L_{\infty}\) is the
+asymptotic average maximum length, \(k\) is the grow rate coefficient, and \(t_0\) 
+is the length at age zero. </p>
+
+<p>The mass-at-age relationship is defined as:</p>
+
+<p>\[ w_{a} = W_{aa}L^{W_{ab}} \]</p>
+
+<p>where \(w_{a}\) is the mass at age \(a\), and \(W_{aa}\) and \(W_{ab}\) are the coefficients that define the power relationship between length and mass. </p>
+
+<h3>Spawning Stock Recruitment Relationship</h3>
+
+<p>The biomass \(A_0\) can be defined as the mature stock biomass that would develop given a constant recruitment level of one (i.e. \(N_{0,1} = 1\) in the above equation). Thus, at a biomass of \(A_0\), distributed across a stable age distribution, the resulting average recruitment level would be \(R_0 = 1\).  \(A_0\) acts as a scaling factor in the recruitment equations by providing the link between \(R_0\) and \(B_0\) </p>
+
+<p>\[ A_0 = \sum_{a=1}^{a_x} n_{a,1}m_aw_a \]</p>
+
+<p>where \(m_i\) is the proportion mature at age \(a\), \(n_{a,1}\) is the virgin number of animals per recruit of age \(a\) in year 1, and \(w_a\) is the weight of an animal of age \(a\). The average unfished recruitment level, \(R_0\), is directly related to the virgin mature, or recruited, biomass, \(B_0\)</p>
+
+<p>\[ R_0 = B_0/A_0 \]</p>
+
+<p>By determining \(A_0\), from a constant recruitment level of one, the recruitment levels from realistic \(B_0\) levels can be obtained by applying the above equation. Once \(R_0\) has been determined the unfished number at age distribution can be obtained by substituting \(R_0\) into the first equation. The spawning stock – recruitment relationship can be described by the deterministic form of the Beverton – Holt relationship:</p>
+
+<p>\[ R_{y+1} = \frac{aB_y^{Sp}}{b+B_y^{Sp}} \]
+where \(B_y^{Sp}\) is the mature, or spawning biomass in the in year \(y\).</p>
+
+<p>A re-parameterization of the Beverton-Holt parameters in terms of steepness, \(h\), and \(B_0\) is to specify \(a\) and \(b\) such that: </p>
+
+<p>\[ a=\frac{4hR_0}{5h-1} \qquad \text{and} \qquad  b=\frac{B_0(1-h)}{5h-1}\]</p>
+
+<p>Using this re-parameterization the the number of recruits produced in year \(y\) from the spawning biomass in year \(y-1\) is:</p>
+
+<p>\[ N_{0,y} = \frac{4hR_0B_{y-1}^{Sp}}{(1-h)B_0+(5h-1)B_{y-1}^{Sp}}. \]</p>
+
+<h3>Stock dynamics</h3>
+
+<p>To describe the dynamics subsequent to population initiation (i.e. the generation of \(N_{a,y}\), the number at age \(a\) in year \(y\), for years other than 0), requires the inclusion of the stock recruitment relationship and the impact of fishing mortality. Not all age classes are necessarily fully selected, thus the fishing mortality term must be multiplied by the selectivity associated with the fishing gear for age \(a\), \(s_a\), described by a logistic curve:</p>
+
+<p>\[ s_a = \frac{1}{\left( 1+e^{(\frac{a-a_{50}}{\delta})}\right)} \] </p>
+
+<p>where \(a_{50}\) is the age at which 50% of individuals are selected by the fishing gear, and \(\delta\) is a parameter that determines the width or steepness of the selectivity ogive. Such logistic curves are also used to describe the development of maturity within he population but in such a case the \(a_{50}\) refers to the age at 50% maturity.</p>
+
+<p>A term is also needed for the recruitment in each year (stock-recruit relationship above), and this is assumed to be a function of the spawning biomass of the stock at the end of the previous year \(y\), \(B_y^{Sp}\). </p>
+
+<p>The spawning biomass for a year \(y\) is:</p>
+
+<p>\[ B_y^{Sp} = \sum_{a=0}^{a_x} w_a m_a N_{a,y}\]</p>
+
+<p>If this is applied to the unfished stable age distribution this would provide an estimate of the unfished spawning biomass-per-recruit. When using difference equations (rather than continuous differential equations) the dynamics of the fishery, in terms of the order in which growth, natural, and fishing mortality occur, are important when defining how the numbers at age change. If the transition of numbers at age in year \(y\) into numbers at age in year \(y+1\) is made in a number of steps this simplifies the calculation of internally consistent estimates of exploitable biomass, catch rates, and harvest rates. If it is assumed that the dynamics of a population entails that fish first grow from year \(y-1\) to year \(y\), then undergo half of natural mortality before they are fished and only then undergo the final half of natural mortality this would imply two steps to define the transition from one year to the next. The first step entails recruitment, growth from each age class to the next, and the application of the effect of half of natural mortality: </p>
+
+<p>\[
+N_{a,y^*} =
+\begin{cases}
+N_{0,y}  & a = 0
+\
+N_{a-1,y-1}e^{-M/2} & 1 \leq a < a_{x} -1
+\\
+\left(N_{a_{x}-1,y-1}+N_{a_{x},y-1}\right) e^{-M/2} & a = a_{x}
+\end{cases}
+\]</p>
+
+<p>where \(N_{0,y}\) is defined by the stock - recruit relationship, ages 1 to \(a_x\)-1 are modelled by adding 1.0 to the previous year&#39;s ages 0 to \(a_x\) – 2 and imposing the survivorship from half the natural mortality, and the plus group (\(a_x\)) is modelled by adding 1.0 to the previous year&#39;s age \(a_x\) - 1 and adding those to the numbers in the previous year&#39;s age \(a_x\) and then applying the survivorship from half the natural mortality. The above equation thus leads to the mid-year exploitable biomass (mid-year being the reason for the \(e^{-M/2}\)) in year \(y\) being defined as:</p>
+
+<p>\[ B_y^{E} = \sum_{a=0}^{a_x} w_a s_a N_{a,y^*}\]</p>
+
+<p>The dynamics within any year are completed by the application of the survivorship following fishing mortality across all ages (expressed as an annual harvest rate), followed by the survivorship following the remainder of natural mortality. Natural mortality is not applied directly to the new recruits until they grow into the next year:</p>
+
+<p>\[
+N_{a,y} =
+\begin{cases}
+N_{0,y^*}  & a = 0
+\
+N_{a,y^*}\left(1-s_a\hat{H_y}\right) e^{-M/2} & 1 \leq a \leq a_{x}
+\end{cases}
+\]
+In the above equation, the \(N_{a,y}\) refer the numbers in age \(a\) at the end of year \(y\) (i.e. after all the dynamics have occurred). The predicted harvest rate, \hat{H_y}., given an observed or recommended catch level in year \(y\), \(C_y\), is estimated as</p>
+
+<p>\[ \hat{H_y} = \frac{C_y} {B_y^E}\]</p>
+
+<p>where \(B_y^E\) is defined above.  The catch at age, in numbers, is therefore defined by:</p>
+
+<p>\[ C_{a,y}^N = N_{a,y^*} s_a \hat{H_y}\]</p>
+
+<p>and the total catch by mass is the sum of the separate catches at age multiplied by their respective average weights for all ages: </p>
+
+<p>\[ C_y = \sum_{a=0}^{a_x} w_a C_{a,y}^N\]</p>
+
+<p>Predicted catch rates also derive from the exploitable biomass and the average catchability coefficient, \(q\):</p>
+
+<p>\[ I_y = qB_y^E. \]</p>
+
+<h3>Likelihoods</h3>
+
+<p>Maximum likelihood methods, as the name dictates entail maximizing the likelihood of the available data given the model and a proposed set of parameters. Very often the likelihoods involved when fitting models are very small numbers. To avoid rounding errors (even when using 64 bit computers) it is standard to use log-likelihoods rather than likelihoods (in that way the log-likelihoods can be individually added together rather than multiply the individual likelihoods). Additionally, rather than maximizing a log-likelihood, minimization often best matches our intuitions about model fitting and this involves minimizing the negative log-likelihood. The full log-normal negative log likelihood for the <strong>aspm</strong> is similar to that used for the <strong>spm</strong> but with a few parameter changes and it estimates the  \({\hat\sigma_{I}}\) directly rather than using a closed form:</p>
+
+<p>\[-veLL\left( data|{R}_{0},\hat{\sigma_{I}} \right)=-\sum\limits_{t}Ln\left[{\frac{1}{{I}_{t}\sqrt{2\pi \hat{\sigma_{I} }}}{{e}^{\frac{-\left( Ln{{I}_{t}}-Ln{{\hat{I}}_{t}} \right)}{2{{{\hat{\sigma_{I} }}}^{2}}}}}} \right]\]</p>
+
+</body>
+
+</html>
