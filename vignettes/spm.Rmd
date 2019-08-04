@@ -1,5 +1,5 @@
 ---
-title: "spm"
+title: "Surplus Production Modelling"
 author: "Malcolm Haddon"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette

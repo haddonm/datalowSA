@@ -1,5 +1,5 @@
 ---
-title: "aspm"
+title: "Age-Structured Production Modelling"
 author: "Malcolm Haddon"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette

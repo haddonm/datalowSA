@@ -1,4 +1,5 @@
 ^Meta$
 ^doc$
+^docx$
 ^.*\.Rproj$
 ^\.Rproj\.user$
