@@ -3,3 +3,5 @@
 ^docx$
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^pdf$
+^html$
