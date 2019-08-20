@@ -1,6 +1,6 @@
 # datalowSA
 
-To install from github use:
+To install from github it is most simple from inside RStudio using:
 
 if (!require(devtools)){install.packages("devtools")}
 devtools::install_github("https://github.com/haddonm/datalowSA",build_vignettes=TRUE)
