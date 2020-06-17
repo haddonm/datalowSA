@@ -4,8 +4,17 @@
 \alias{robustASPM}
 \title{robustASPM conducts a robustness test on the quality of fit of an ASPM}
 \usage{
-robustASPM(inpar, fish, glb, props, N = 10, scaler = 15,
-  Hrange = c(0.01, 0.45, 0.005), numyrs = 50, console = TRUE)
+robustASPM(
+  inpar,
+  fish,
+  glb,
+  props,
+  N = 10,
+  scaler = 15,
+  Hrange = c(0.01, 0.45, 0.005),
+  numyrs = 50,
+  console = TRUE
+)
 }
 \arguments{
 \item{inpar}{the parameter set to begin the trials with}

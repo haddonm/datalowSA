@@ -4,8 +4,15 @@
 \alias{getProduction}
 \title{getProduction estimates MSY from output of ASPM}
 \usage{
-getProduction(inR0, infish, inglb, inprops, Hrg = c(0.025, 0.4, 0.025),
-  nyr = 50, maxiter = 3)
+getProduction(
+  inR0,
+  infish,
+  inglb,
+  inprops,
+  Hrg = c(0.025, 0.4, 0.025),
+  nyr = 50,
+  maxiter = 3
+)
 }
 \arguments{
 \item{inR0}{the optimum estimate of R0 from ASPM on nominal scale}

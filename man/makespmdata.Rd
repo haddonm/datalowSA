@@ -4,8 +4,7 @@
 \alias{makespmdata}
 \title{makespmdata puts together correctly formatted data for SPM analysis}
 \usage{
-makespmdata(indata, yearcol = "year", catchcol = "catch",
-  cpuecol = "cpue")
+makespmdata(indata, yearcol = "year", catchcol = "catch", cpuecol = "cpue")
 }
 \arguments{
 \item{indata}{either the list obtained from readdata or the data.frame 'fish'

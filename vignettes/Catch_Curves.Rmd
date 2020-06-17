@@ -33,13 +33,13 @@ Which stock assessment method to apply to fisheries for data-poor to data-modera
 
 ## Catch Curve Analyses
 
-Catch curves are an assessment approach that has a relatively long history. The ideas behind them is very simple. If the total population concerned received constant recruitment and a constant mortality rate each year, such an equilibrium assumption would imply that all cohorts would be identical and the numbers in each age class would be expected to decline exponentially. It is possible to follow the fate of a single cohort through a number of years or consider multiple cohorts in a single year and both of those options 
+Catch curves are an assessment approach that has a relatively long history. The idea behind them is very simple. If the total population concerned received constant recruitment and a constant mortality rate each year, such an equilibrium assumption would imply that all cohorts would be identical and the numbers in each age class would be expected to decline exponentially. It is possible to follow the fate of a single cohort through a number of years, or consider multiple cohorts in a single year, or both of those options 
 
 $${{N}_{t}}={{N}_{0}}{{e}^{-(M+F)t}}={N}_{0}{e}^{-Zt}={N}_{t-1}{e}^{-Z}$$
 where _N~t~_ is the numbers at a particular age (a cohort) _t_, _M_ is the natural mortality, _F_ is the age-specific fishing mortality, _Z_ is the age-specific total mortality. This relationship can be linearized through log-transformation.
 
 $$Log({N}_{t})=Log({N}_{0})-Zt$$
-which is obviously a simple linear regression. This means if one assumes that fishing mortality and natural mortality have been constant and one has the age-composition of the catch in a single year if one plots up the log-transformed numbers-at-age and plot those against age then the gradient of a linear regression through the data will provide an estimate of total mortality. This can be illustrated through the use of a particular data set and we will use one of the built in data sets: plaice.
+which transforms the exponential relationship into a simple linear regression. We can use this linear relationship to generate an estimate of total mortality. First we assume that fishing mortality and natural mortality have been constant (or at least have varied consistently), and that one has the age-composition of the catch in a single year. If one then plots the log-transformed numbers-at-age against age, the gradient of a linear regression through the data will provide an estimate of total mortality. This can be illustrated through the use of a particular data set and we will use one of the built in data sets: _plaice_.
 
 ```{r plaicedata, echo=TRUE,fig.width=7,fig.height=6,fig.align="center" }
 # library(datalowSA)
@@ -58,11 +58,11 @@ compyear(naa,yrs,ages,plots=c(3,3),freq=TRUE,border=3)
 __Figure 1.__ Numbers-at-age for each year of data from the plaice data set.
 
 
-When the age data from the plaice data set are considered it is  clear that the notion of a exponential decline is only approximated by this real data. Such deviations from the theoretical expectation derive from the fact that real populations are not in equilibrium and recruitment is not a constant. For example, a strong year class becomes apparent in the 1932 year and the progression is relatively easily seen through 1933 and 1934. So the dynamics appears to be realistic although the assumptions about equilibrium do not appear to be valid. Despite this we can use this data to illustrate the use of the catch curves. 
+When the age data from the plaice data set are considered it is  clear that the notion of a exponential decline in numbers-at-age is only approximated across sequential ages  by this real data. Such deviations from the theoretical expectation derive from the fact that real populations are not in equilibrium and recruitment is not a constant. For example, a strong year class becomes apparent in 1932, and the progression is relatively easily seen through 1933 and 1934. So the expected dynamics appears to be realistic although the assumptions about equilibrium do not appear to be valid. Despite this we can use this data to illustrate the use of the catch curves. 
 
 A standard workflow when using catch curves might consist of:
 
-1. read in age composition data (and natural mortality depending)
+1. read in age composition data (and natural mortality)
 2. visualize that age composition using the function __compyear__. 
 2. use __naiveCC__ for the classical catch curve.
 3. alternatively use __selectCC__ where the selectivity is estimated as well as the gradient of decline.
@@ -81,7 +81,7 @@ out <- classicCC(M,ages,numaa,pickage,plot=TRUE)
 
 ```
 
-__Figure 2.__ The classical catch curve applied to the age data from 1929, from the plaice data set. The age at which the regression line begins to be fitted in the plot was age 4 (_pickage_ = 4). If a _pickage_ of 3 was chosen the regression line would be somewhat steeper, which would have implied a higher fishing mortality rate.
+__Figure 2.__ The classical catch curve applied to the age data from 1929, from the _plaice_ data set. The age at which the regression line begins to be fitted in the plot was age 4 (_pickage_ = 4). If a _pickage_ of 3 was chosen the regression line would be somewhat somewhat less steep, which would have implied a lower fishing mortality rate.
 
 If the `classicCC` is applied to each of the nine years of data it would be important to use the same _pickage_. In some cases (possibly 1932 - 1934) the strong year class can disrupt this analysis by suggesting that selectivity only operates from a much older _pickage_.
 
@@ -95,7 +95,7 @@ out <- classicCC(M,ages,numaa,pickage,plot=TRUE)
 
 ```
 
-__Figure 3.__ The classical catch curve applied to the age data from 1933, from the plaice data set. The age at which the regression line begins to be fitted in the plot was age 4 (_pickage_ = 4). If considered alone this plot appears to suggest that a _pickage_ of 5 might be chosen, but that would be merely a reflection of the strong year class rather than the original pickage of 4.
+__Figure 3.__ The classical catch curve applied to the age data from 1933, from the _plaice_ data set. The age at which the regression line begins to be fitted in the plot was age 4 (_pickage_ = 4). If considered alone this plot appears to suggest that a _pickage_ of 5 might be chosen, but that would be merely a reflection of the strong year class rather than the original pickage of 4.
 
 ```{r printout, echo = TRUE}
 print(out)
@@ -105,7 +105,7 @@ By comparing _Figures 2 and 3_ it should be clear that only having a single year
 
 ## Inclusion of Selectivity in Catch Curves
 
-
+Rather than just ignoring the earlier weakly selected ages, as in the classical catch-curve, it is possible to estimate selectivity parameters as well as the total mortality rate. However, this requires the use of an equilibrium based age-structured model rather than the log-transformed linear regression (see equations in the Appendix below; Wayte, S.E. and N.L. Klaer, 2010).
 
 
 ```{r selectCC, echo=TRUE, fig.width=7,fig.height=4.5,fig.align="center"}
@@ -170,16 +170,34 @@ Schaefer, M.B. (1957) A study of the dynamics of the fishery for yellowfin tuna 
 
 Walters, C.J., Martell, S.J.D. and J. Korman (2006) A stochastic approach to stock reduction analysis. _Canadian Journal of Fisheries and Aquatic Sciences_ __63__: 212 - 223.
 
-
+Wayte, S.E. and N.L. Klaer (2010) An effective harvest strategy using improved catch-curves. _Fisheries Research_ __106__: 310-320.
 
 
 
 ## Appendix: Catch Curve Equations
 
+### Catch-Curves with Selectivity
 
+A simple model of the expect explonential decline of numbers-at-age is needed:
 
+$$\begin{matrix}
+   {{N}_{0}}= & 1 & a=0  \\
+   {{N}_{a}}= & {{N}_{a-1}}\exp \left( -{{s}_{a-1}}F-M \right) & 0<a<{{a}_{\max }}  \\
+   {{N}_{a}}= & \frac{{{N}_{a-1}}\exp \left( -{{s}_{a-1}}F-M \right)}{\left( 1-\exp \left( -{{s}_{a}}F-M \right) \right)} & a={{a}_{\max }}  \\
+\end{matrix} $$
 
+where $N_a$ is the numbers-at-age $a$, $s_a$ is the selectivity-at-age $a$, $F$ is the fully selected average fishing mortality over the years for which ages are available, $M$ is the assumed natural mortality, and $a_{max}$ is the maximum age. The selectivity is assumed to be asymptotic (so this method may not be suitable for gillnets or hook gear):
 
+$$s_a = \frac{1}{1+exp(-\ln(19)(a-a_{50})/\delta)}$$
+where $a$ is age, $a_{50}$ is the age at 50% selectivity and $\delta$ is equal to $a_{95} - a_{50}$.
+
+Three parameters are estimated, both the selectivity paramters, $a_{50}$ and $\delta$, and the average fully selected $F$ value. $\delta$ is used instead of $a_{95}$ as this reduces interactions between the two and helps avoid $a_{50}$ values larger than $a_{95}$ values. These parameters can be estimated through minimizing the multinomial negative log-likelihood:
+
+$$-veLL=\sum\limits_{y}{{{n}_{y}}\sum\limits_{a}{{{O}_{y,a}}\ln \left( \frac{{{{\hat{N}}}_{a}}}{{{O}_{y,a}}} \right)}}$$
+
+where $n_y$ is the sample size $n$ in year $y$, $O_{y,a}$ is the observed proportion of numbers-at-age $a$ in the catch in year $y$, and ${\hat{N}_{a}}$ is the expected or predicted proportion of numbers-at-age $a$ in the catch in year $y$. The predicted numbers-at-age are calculated using the Baranov catch equation:
+
+$${\hat{N}_a}=\frac{{N_a}{s_a}F}{(s_aF+M)}\left(1-e^{-(s_aF+M)} \right )$$
 
 
 

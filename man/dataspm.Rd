@@ -4,7 +4,8 @@
 \name{dataspm}
 \alias{dataspm}
 \title{dataspm Three data objects suitable for use with datalowSA.}
-\format{A list of three objects
+\format{
+A list of three objects
 \describe{
   \item{fish}{ a data.frame containing Year, Catch, CPUE, SE, Records, and
       GeoM which is the unstandardized geometric mean CPUE }
@@ -12,7 +13,8 @@
       growth, weight-at-age, maturity-at-age, steepness, R0, selectivity,
       resilience, number of ages, and the ages themselves. }
   \item{props}{ a data.frame of age, laa, waa, maa, sela, and feca}
-}}
+}
+}
 \usage{
 dataspm
 }

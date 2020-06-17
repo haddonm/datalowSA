@@ -4,8 +4,15 @@
 \alias{aspmphaseplot}
 \title{aspmphaseplot - plots the phase plot of harvest rate vs biomass}
 \usage{
-aspmphaseplot(fishery, prod, ans, Blim = 0.2, filename = "",
-  resol = 200, fnt = 7)
+aspmphaseplot(
+  fishery,
+  prod,
+  ans,
+  Blim = 0.2,
+  filename = "",
+  resol = 200,
+  fnt = 7
+)
 }
 \arguments{
 \item{fishery}{the object output by the function dynamics, containing the 

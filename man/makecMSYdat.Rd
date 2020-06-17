@@ -4,8 +4,13 @@
 \alias{makecMSYdat}
 \title{makecMSYdat generates a cMSY dataset out of other data files}
 \usage{
-makecMSYdat(indat, spsname = "", yearcol = "Year",
-  catchcol = "Catch", resil = "low")
+makecMSYdat(
+  indat,
+  spsname = "",
+  yearcol = "Year",
+  catchcol = "Catch",
+  resil = "low"
+)
 }
 \arguments{
 \item{indat}{the tier 4 datafile for one species}

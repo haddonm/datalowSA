@@ -3,7 +3,6 @@
 \docType{package}
 \name{datalowSA}
 \alias{datalowSA}
-\alias{datalowSA-package}
 \title{datalowSA a set of functions to assist with data-poor assessments}
 \description{
 The datalowSA package provides three categories of functions

@@ -4,8 +4,7 @@
 \alias{makedataset}
 \title{makedataset combines year, catch, and optionally cpue into a data set}
 \usage{
-makedataset(year, catch, cpue = NA, species = "species",
-  resilience = "low")
+makedataset(year, catch, cpue = NA, species = "species", resilience = "low")
 }
 \arguments{
 \item{year}{a vector of years that contained fisheries data}

@@ -4,8 +4,14 @@
 \alias{negLL}
 \title{negLL  -ve log-likelihood for normally distributed variables}
 \usage{
-negLL(inp, indat, callfun, init = inp, pickparam = c(1:length(inp)),
-  schaefer = TRUE)
+negLL(
+  inp,
+  indat,
+  callfun,
+  init = inp,
+  pickparam = c(1:length(inp)),
+  schaefer = TRUE
+)
 }
 \arguments{
 \item{inp}{a vector containing the parameters being used in funk, plus

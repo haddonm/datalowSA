@@ -4,9 +4,20 @@
 \alias{run_cMSY}
 \title{run_cMSY - sets up and runs the catch-MSY simulations}
 \usage{
-run_cMSY(indat, glob, n = 10000, incB = 0.025, sigpR = 0.025,
-  multK = 1, finaldepl = NA, start_k = NA, start_r = NA,
-  initdepl = NA, maximumH = 1, Hyear = NA)
+run_cMSY(
+  indat,
+  glob,
+  n = 10000,
+  incB = 0.025,
+  sigpR = 0.025,
+  multK = 1,
+  finaldepl = NA,
+  start_k = NA,
+  start_r = NA,
+  initdepl = NA,
+  maximumH = 1,
+  Hyear = NA
+)
 }
 \arguments{
 \item{indat}{- a data.frame, with at least a 'catch' column containing

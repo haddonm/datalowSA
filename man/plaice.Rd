@@ -4,7 +4,8 @@
 \name{plaice}
 \alias{plaice}
 \title{plaice data derived from Beverton and Holt, 1957 for European Plaice.}
-\format{A list of five objects with only the first four containing data, the
+\format{
+A list of five objects with only the first four containing data, the
     lendata only contains formatted data for illustrating that format, it is
     not real data. The other objects contain real data.
 \describe{
@@ -18,7 +19,8 @@
     the number of observed ages, and naa - the numbers-at-age by year}
   \item{lendata}{ a list of 5 objects akin to the agedata object but for
     length data.}
-}}
+}
+}
 \usage{
 plaice
 }

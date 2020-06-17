@@ -4,8 +4,15 @@
 \alias{robustSPM}
 \title{robustSPM conducts a robustness test on the quality of fit of an SPM}
 \usage{
-robustSPM(inpar, fish, glb, N = 10, scaler = 15, console = TRUE,
-  schaefer = TRUE)
+robustSPM(
+  inpar,
+  fish,
+  glb,
+  N = 10,
+  scaler = 15,
+  console = TRUE,
+  schaefer = TRUE
+)
 }
 \arguments{
 \item{inpar}{the parameter set to begin the trials with}

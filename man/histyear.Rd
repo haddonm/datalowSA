@@ -4,10 +4,21 @@
 \alias{histyear}
 \title{histyear plots a histogram of a variable for each year available}
 \usage{
-histyear(x, Lbound = -3.5, Rbound = 12.25, inc = 0.25, new = FALSE,
-  plots = c(11, 3), pickvar = "LnCE", varlabel = "log(CPUE)",
-  col = 2, border = 2, addnormal = TRUE, right = TRUE,
-  vline = "mean")
+histyear(
+  x,
+  Lbound = -3.5,
+  Rbound = 12.25,
+  inc = 0.25,
+  new = FALSE,
+  plots = c(11, 3),
+  pickvar = "LnCE",
+  varlabel = "log(CPUE)",
+  col = 2,
+  border = 2,
+  addnormal = TRUE,
+  right = TRUE,
+  vline = "mean"
+)
 }
 \arguments{
 \item{x}{the data.frame of data with at least a 'Year' and pickvar present}

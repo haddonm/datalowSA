@@ -4,8 +4,15 @@
 \alias{plotfishery}
 \title{plotfishery plots the catch and optionally the cpue from fish}
 \usage{
-plotfishery(fish, glb, ce = TRUE, title = TRUE, fnt = 7,
-  filename = "", resol = 200)
+plotfishery(
+  fish,
+  glb,
+  ce = TRUE,
+  title = TRUE,
+  fnt = 7,
+  filename = "",
+  resol = 200
+)
 }
 \arguments{
 \item{fish}{the matrix or data.frame containing year, catch, and cpue.}

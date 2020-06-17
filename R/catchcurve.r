@@ -323,10 +323,10 @@ multLL <- function(pars,ages,counts,M,matchage) { # pars=pars; ages=allage;count
 #' @param maxage is the maximum age in the available data
 #' @param counts is the numbers at age, a vector of counts with names that are the
 #'     ages to which the counts relate
-#' @param pars the initial estimates of the two selectivity parameters (L50 the
-#'     age at 50% selection, and delta, twice the number of years between L50 
-#'     and L95), and the initial estimate of the fishinng mortality. See the 
-#'     example below.
+#' @param pars three values in a vector, these are the initial estimates of the 
+#'     two selectivity parameters (A50, the age at 50% selection, and delta = 
+#'     (A95 - A50), of course delta must be positive), and the initial 
+#'     estimate (guess) of the fishing mortality. See the example below.
 #' @param plot a logical parameter determining whether to plot the result or not,
 #'     the default is FALSE
 #'

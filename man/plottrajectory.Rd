@@ -4,8 +4,17 @@
 \alias{plottrajectory}
 \title{plottrajectory literally plots predicted trajectories}
 \usage{
-plottrajectory(inR1, years, catch, inparbound, scalar = 1000, Bmax = 2,
-  oneplot = TRUE, plotout = TRUE, plotall = 7)
+plottrajectory(
+  inR1,
+  years,
+  catch,
+  inparbound,
+  scalar = 1000,
+  Bmax = 2,
+  oneplot = TRUE,
+  plotout = TRUE,
+  plotall = 7
+)
 }
 \arguments{
 \item{inR1}{the output from run_cMST}

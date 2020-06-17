@@ -4,8 +4,7 @@
 \alias{asmreduction}
 \title{asmreduction conducts an age-structured stock reduction}
 \usage{
-asmreduction(inR0, fish, glb, props, limitH = c(0, 1), projyr = 0,
-  constC = 0)
+asmreduction(inR0, fish, glb, props, limitH = c(0, 1), projyr = 0, constC = 0)
 }
 \arguments{
 \item{inR0}{the trial value of unfished recruitment R0}

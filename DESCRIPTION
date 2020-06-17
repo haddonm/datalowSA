@@ -1,8 +1,8 @@
 Package: datalowSA
 Type: Package
 Title: A Package to Faciliate Application of Data poor Stock Assessments
-Version: 0.1.0
-Date: 2019-05-20
+Version: 0.1.1
+Date: 2020-06-17
 Author: Malcolm Haddon
 Maintainer: Malcolm Haddon <Malcolm.Haddon@gmail.com>
 Description: datalowSA is a significant fork of the original simpleSA developed during
@@ -19,7 +19,7 @@ Encoding: UTF-8
 LazyData: TRUE
 Imports: Rcpp (>= 1.0.0)
 LinkingTo: Rcpp
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.0
 Suggests:
     knitr,
     rmarkdown

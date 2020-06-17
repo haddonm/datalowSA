@@ -4,9 +4,19 @@
 \alias{displayModel}
 \title{displayModel plots the model fit given the parameters and data}
 \usage{
-displayModel(inp, indat, schaefer = TRUE, extern = FALSE,
-  limit = 0.2, target = 0.48, addrmse = FALSE, filename = "",
-  resol = 200, fnt = 7, plotout = TRUE)
+displayModel(
+  inp,
+  indat,
+  schaefer = TRUE,
+  extern = FALSE,
+  limit = 0.2,
+  target = 0.48,
+  addrmse = FALSE,
+  filename = "",
+  resol = 200,
+  fnt = 7,
+  plotout = TRUE
+)
 }
 \arguments{
 \item{inp}{a vector of model parameters (r,K,B0)}

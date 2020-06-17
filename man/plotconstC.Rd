@@ -4,8 +4,16 @@
 \alias{plotconstC}
 \title{plotconstC summarizes constant catch projections in catch-MSY}
 \usage{
-plotconstC(deplete, endyear, constC = 0, limit = 0.2, target = 0.48,
-  console = TRUE, intensity = NA, contours = TRUE)
+plotconstC(
+  deplete,
+  endyear,
+  constC = 0,
+  limit = 0.2,
+  target = 0.48,
+  console = TRUE,
+  intensity = NA,
+  contours = TRUE
+)
 }
 \arguments{
 \item{deplete}{the output of 'gettraject', a matrix of biomass trajectories}

@@ -815,7 +815,7 @@ plotASPM <- function(infish,CI=NA,defineplot=TRUE, target=0.48,usef=7,png="") {
    plot(yrs,infish$CPUE,type="p",pch=16,col=2,cex=1.0,ylim=c(0,ymax),yaxs="i",
         xlab="",panel.first=grid(),ylab="Relative CPUE")
    lines(yrs,infish$PredCE,lwd=2,col=1)
-   if (class(CI) == "matrix") {
+   if ("matrix" %in% class(CI)) {
       segments(x0=yrs,y0=CI[,1],x1=yrs,y1=CI[,3],lwd=1,col=4)
    }
    # plot harvest rate

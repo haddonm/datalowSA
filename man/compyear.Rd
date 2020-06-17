@@ -4,9 +4,23 @@
 \alias{compyear}
 \title{compyear plots a histogram of a variable for each year available}
 \usage{
-compyear(x, yrs, comps, plots = c(length(x[, 1]), 1), freq = TRUE,
-  varlabel = NA, width = 0.9, col = 2, border = 2, lwd = 1,
-  xmin = NA, xmax = NA, inc = 1, xaxis = TRUE, vline = 0)
+compyear(
+  x,
+  yrs,
+  comps,
+  plots = c(length(x[, 1]), 1),
+  freq = TRUE,
+  varlabel = NA,
+  width = 0.9,
+  col = 2,
+  border = 2,
+  lwd = 1,
+  xmin = NA,
+  xmax = NA,
+  inc = 1,
+  xaxis = TRUE,
+  vline = 0
+)
 }
 \arguments{
 \item{x}{a matrix of years (rows) by counts (cols)}

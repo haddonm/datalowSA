@@ -4,9 +4,23 @@
 \alias{ccyear}
 \title{ccyear plots a histogram of naa and plots log(naa) each year available}
 \usage{
-ccyear(x, yrs, comps, freq = TRUE, varlabel = NA, width = 0.9,
-  col = 2, border = 2, lwd = 1, xmin = NA, xmax = NA, inc = 1,
-  xaxis = TRUE, vline = 0, title = "")
+ccyear(
+  x,
+  yrs,
+  comps,
+  freq = TRUE,
+  varlabel = NA,
+  width = 0.9,
+  col = 2,
+  border = 2,
+  lwd = 1,
+  xmin = NA,
+  xmax = NA,
+  inc = 1,
+  xaxis = TRUE,
+  vline = 0,
+  title = ""
+)
 }
 \arguments{
 \item{x}{a matrix of years (rows) by counts (cols)}

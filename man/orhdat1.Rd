@@ -4,7 +4,8 @@
 \name{orhdat1}
 \alias{orhdat1}
 \title{orhdat1 Three data objects suitable for use with asmreduct.}
-\format{A list of three objects
+\format{
+A list of three objects
 \describe{
   \item{fish}{ a data.frame containing year, catch}
   \item{glb}{ a list of global variables including maxage, M, parameters 
@@ -12,7 +13,8 @@
       selectivity, resilience, number of ages, the ages themselves, the
       number of years of catch data, and the species name}
   \item{props}{ a data.frame of age, laa, waa, maa, sela, and feca}
-}}
+}
+}
 \usage{
 orhdat1
 }

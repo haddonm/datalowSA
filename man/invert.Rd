@@ -4,7 +4,8 @@
 \name{invert}
 \alias{invert}
 \title{invert data derived from a trawl caught invertebrate fishery.}
-\format{A list of three objects only two of which contains data
+\format{
+A list of three objects only two of which contains data
 \describe{
   \item{fish}{ a data.frame containing year, catch, cpue, SE of the cpue, 
       geom, which is the unstandardized geometric mean CPUE, vessel, which
@@ -12,7 +13,8 @@
       the number of cpue records reported each year }
   \item{glb}{ contains the resilience and spsname }
   \item{props}{ set to NULL}
-}}
+}
+}
 \usage{
 invert
 }
