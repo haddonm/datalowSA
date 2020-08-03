@@ -181,10 +181,10 @@ Wayte, S.E. and N.L. Klaer (2010) An effective harvest strategy using improved c
 A simple model of the expect explonential decline of numbers-at-age is needed:
 
 $$\begin{matrix}
-   {{N}_{0}}= & 1 & a=0  \\
-   {{N}_{a}}= & {{N}_{a-1}}\exp \left( -{{s}_{a-1}}F-M \right) & 0<a<{{a}_{\max }}  \\
-   {{N}_{a}}= & \frac{{{N}_{a-1}}\exp \left( -{{s}_{a-1}}F-M \right)}{\left( 1-\exp \left( -{{s}_{a}}F-M \right) \right)} & a={{a}_{\max }}  \\
-\end{matrix} $$
+   {N}_{0}= & 1 & a=0  \\
+   {N}_{a}= & {{N}_{a-1}}\exp \left( -{{s}_{a-1}}F-M \right) & 0<a<{{a}_{\max }}  \\
+   {N}_{a}= & \frac{{{N}_{a-1}}\exp \left( -{{s}_{a-1}}F-M \right)}{\left( 1-\exp \left( -{{s}_{a}}F-M \right) \right)} & a={{a}_{\max }} \\
+\end{matrix}$$
 
 where $N_a$ is the numbers-at-age $a$, $s_a$ is the selectivity-at-age $a$, $F$ is the fully selected average fishing mortality over the years for which ages are available, $M$ is the assumed natural mortality, and $a_{max}$ is the maximum age. The selectivity is assumed to be asymptotic (so this method may not be suitable for gillnets or hook gear):
 

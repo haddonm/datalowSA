@@ -55,6 +55,7 @@ central <- function(x,P=0.90) {
 #'
 #' @param answer the output from the run_cMSY function
 #' @param fish the fishery data put into run_CMSY
+#' @param plotout should a plot be produced, default=TRUE
 #'
 #' @return a list of meanB, meanH, msy, Bmsy, Hmsy, and Hlim, returned invisibly
 #' @export
@@ -68,7 +69,7 @@ central <- function(x,P=0.90) {
 #'   plotprep(width=7,height=6)
 #'   cMSYphaseplot(answer,fish)
 #' }
-cMSYphaseplot <- function(answer,fish) { 
+cMSYphaseplot <- function(answer,fish,plotout=TRUE) { 
    summcMSY <- summarycMSY(answer,fish,final=TRUE)
    avr <- summcMSY$meanr["Geometric","Mean"]
    avK <- summcMSY$meanK["Geometric","Mean"]
@@ -86,32 +87,34 @@ cMSYphaseplot <- function(answer,fish) {
    numval <- length(outphase$medianB) - 1
    medianB <- outphase$medianB[1:numval]
    medianH <- outphase$medianH[1:numval]
-   ymax <- getmaxy(medianH)
-   par(mai=c(0.45,0.45,0.05,0.45),oma=c(0.0,0,0.0,0.0)) 
-   par(cex=0.85, mgp=c(1.35,0.35,0), font.axis=7,font=7,font.lab=7)  
-   layout(matrix(c(1,2)),heights=c(3,1))
-   plot(medianB,medianH,type="l",lwd=2,col=2,ylim=c(0,ymax),xlim=c(0.1*avK,avK),
-        ylab="Harvest Rate",xlab="Predicted Mean Biomass")
-   points(medianB,medianH,pch=16,cex=1,col=1)
-   points(medianB[1],medianH[1],pch=16,cex=1.5,col=3)
-   points(medianB[numval],medianH[numval],pch=16,cex=1.5,col=2) # end point
-   abline(v=c(avK*0.2,Bmsy,avK),col=c(2,3,3),lty=2)
-   abline(h=c(Hmsy,Hlim),col=c(4,2),lty=2)
-   text(Bmsy,0.0,"~Btarg",font=7,cex=1.0,pos=4)
-   text(0.2*avK,0.0,"0.2B0",font=7,cex=1.0,pos=4)
-   text(0.9*avK,1.075*Hmsy,"~Ftarg",font=7,cex=1.0,pos=4)
-   text(0.9*avK,1.075*Hlim,"~Flim",font=7,cex=1.0,pos=4)
-   cmax <- getmaxy(fish$catch)
-   plot(fish$year,fish$catch,type="l",lwd=2,col=2,ylab="",xlab="",ylim=c(0,cmax),
-        yaxs="i")
-   par(new=TRUE)
-   plot(fish$year,medianH,type="l",lwd=2,col=4,ylim=c(0,ymax),yaxt="n",ylab="",
-        yaxs="i",xlab="",panel.first = grid(ny=0))
-   abline(h=Hmsy,col=4,lty=2)
-   ym2 <- round(ymax,2)
-   axis(side=4,at=seq(0,ym2,length=3),labels = seq(0,ym2,length=3))
-   mtext("Catch (t)",side=2,outer=F,line=1.2,font=7,cex=1.0,col=2) 
-   mtext("Harvest Rate",side=4,outer=F,line=1.1,font=7,cex=1.0,col=4) 
+   if (plotout) {
+      ymax <- getmaxy(medianH)
+      par(mai=c(0.45,0.45,0.05,0.45),oma=c(0.0,0,0.0,0.0)) 
+      par(cex=0.85, mgp=c(1.35,0.35,0), font.axis=7,font=7,font.lab=7)  
+      layout(matrix(c(1,2)),heights=c(3,1))
+      plot(medianB,medianH,type="l",lwd=2,col=2,ylim=c(0,ymax),xlim=c(0.1*avK,avK),
+           ylab="Harvest Rate",xlab="Predicted Mean Biomass")
+      points(medianB,medianH,pch=16,cex=1,col=1)
+      points(medianB[1],medianH[1],pch=16,cex=1.5,col=3)
+      points(medianB[numval],medianH[numval],pch=16,cex=1.5,col=2) # end point
+      abline(v=c(avK*0.2,Bmsy,avK),col=c(2,3,3),lty=2)
+      abline(h=c(Hmsy,Hlim),col=c(4,2),lty=2)
+      text(Bmsy,0.0,"~Btarg",font=7,cex=1.0,pos=4)
+      text(0.2*avK,0.0,"0.2B0",font=7,cex=1.0,pos=4)
+      text(0.9*avK,1.075*Hmsy,"~Ftarg",font=7,cex=1.0,pos=4)
+      text(0.9*avK,1.075*Hlim,"~Flim",font=7,cex=1.0,pos=4)
+      cmax <- getmaxy(fish$catch)
+      plot(fish$year,fish$catch,type="l",lwd=2,col=2,ylab="",xlab="",
+           ylim=c(0,cmax),yaxs="i")
+      par(new=TRUE)
+      plot(fish$year,medianH,type="l",lwd=2,col=4,ylim=c(0,ymax),yaxt="n",
+           ylab="",yaxs="i",xlab="",panel.first = grid(ny=0))
+      abline(h=Hmsy,col=4,lty=2)
+      ym2 <- round(ymax,2)
+      axis(side=4,at=seq(0,ym2,length=3),labels = seq(0,ym2,length=3))
+      mtext("Catch (t)",side=2,outer=F,line=1.2,font=7,cex=1.0,col=2) 
+      mtext("Harvest Rate",side=4,outer=F,line=1.1,font=7,cex=1.0,col=4) 
+   }
    result <- list(medianB=medianB,medianH=medianH,msy=msy,Bmsy=Bmsy,
                   Hmsy=Hmsy,Hlim=Hlim,succB=outphase$succB,
                   succH=outphase$succH)

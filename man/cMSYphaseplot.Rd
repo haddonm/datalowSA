@@ -4,12 +4,14 @@
 \alias{cMSYphaseplot}
 \title{cMSYphaseplot plots the phase plot and catch and harvest rate plots}
 \usage{
-cMSYphaseplot(answer, fish)
+cMSYphaseplot(answer, fish, plotout = TRUE)
 }
 \arguments{
 \item{answer}{the output from the run_cMSY function}
 
 \item{fish}{the fishery data put into run_CMSY}
+
+\item{plotout}{should a plot be produced, default=TRUE}
 }
 \value{
 a list of meanB, meanH, msy, Bmsy, Hmsy, and Hlim, returned invisibly
