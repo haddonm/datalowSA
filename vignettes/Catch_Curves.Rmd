@@ -113,33 +113,37 @@ data(plaice)
 glb <- plaice$glb
 naa <- plaice$agedata$naa
 pick <- which(naa[,"sex"] == 1)
-naa <- naa[pick,3:11]
-numaa <- naa[2,] 
+naa <- naa[pick,3:11] # use only the numeric data
+numaa <- naa[2,]    # use the data from 1930
 pars <- c(A50=3.0,delta=0.5,fcur=0.6)
 out <- selectCC(glb$M,glb$maxage,numaa,pars,plot=TRUE)
 
 ```
 
-__Figure 4.__ This catch curve uses a simple age-structured model to include the estimation of selectivity from the age data. It provides an estimate of fully selected fishing mortality rather than an average fishing mortality applied to all included age classes (as in the classicCC).
+__Figure 4.__ This fittted catch curve uses a simple age-structured model to include the estimation of selectivity from the age data. It provides an estimate of fully selected fishing mortality rather than an average fishing mortality applied to all included age classes (as in the classicCC).
 
 
 ```{r selectCCout, echo=TRUE}
-print(out)
+print(out$best)
 
 ```
 
 
+```{r echo=TRUE}
+kable(out$result,digits=c(0,3,3,3,4,4,5,4))
+
+```
 
 
 ## Discussion
 
-
+Still to come.
 
 
 
 ### Management Advice from Catch Curves
 
-
+Still to come.
 
 
 ## References
@@ -193,9 +197,10 @@ where $a$ is age, $a_{50}$ is the age at 50% selectivity and $\delta$ is equal t
 
 Three parameters are estimated, both the selectivity paramters, $a_{50}$ and $\delta$, and the average fully selected $F$ value. $\delta$ is used instead of $a_{95}$ as this reduces interactions between the two and helps avoid $a_{50}$ values larger than $a_{95}$ values. These parameters can be estimated through minimizing the multinomial negative log-likelihood:
 
-$$-veLL=\sum\limits_{y}{{{n}_{y}}\sum\limits_{a}{{{O}_{y,a}}\ln \left( \frac{{{{\hat{N}}}_{a}}}{{{O}_{y,a}}} \right)}}$$
+$$-veLL=-\sum\limits_{y}\sum\limits_{a}{{O}_{y,a}}log\left(\frac{{\hat{N}_{a}}}{\sum{{\hat{N}_{a}}}} \right)$$
 
-where $n_y$ is the sample size $n$ in year $y$, $O_{y,a}$ is the observed proportion of numbers-at-age $a$ in the catch in year $y$, and ${\hat{N}_{a}}$ is the expected or predicted proportion of numbers-at-age $a$ in the catch in year $y$. The predicted numbers-at-age are calculated using the Baranov catch equation:
+
+where $n_y$ is the sample size $n$ in year $y$, $O_{y,a}$ is the observed numbers-at-age $a$ in the catch in year $y$, and ${\hat{N}_{a}}$ is the expected or predicted numbers-at-age $a$ in the catch in year $y$. The predicted numbers-at-age are calculated using the Baranov catch equation:
 
 $${\hat{N}_a}=\frac{{N_a}{s_a}F}{(s_aF+M)}\left(1-e^{-(s_aF+M)} \right )$$
 

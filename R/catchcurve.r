@@ -347,7 +347,7 @@ multLL <- function(pars,ages,counts,M,matchage) { # pars=pars; ages=allage;count
 #' selectCC(M,max(ages),counts,pars,plot=TRUE)
 #' }  
 selectCC <- function(M,maxage,counts,pars,plot=FALSE) { 
-   # M=0.36; maxage=max(ages);counts=numa;pars=param;plot=TRUE
+   # M=0.3; maxage=max(ages);counts=numaa;pars=pars;plot=TRUE
    countages <- as.numeric(names(counts))   
    allage <- 0:maxage
    matchage <- which(allage %in% countages)
@@ -373,21 +373,21 @@ selectCC <- function(M,maxage,counts,pars,plot=FALSE) {
       par(cex = 0.85, mgp = c(1.35, 0.35, 0),font.axis = 7,font = 7,font.lab = 7)
       ages <- allage[matchage]
       ymax <- getmaxy(c(pCAA,pp))
-      plot(ages,pCAA[matchage],type="p",pch=16,cex=1.0,col=1,ylim=c(0,ymax),yaxs="i",
+      plot(ages,pCAA,type="p",pch=16,cex=1.0,col=1,ylim=c(0,ymax),yaxs="i",
            ylab="Proportion-at-Age",panel.first=c(grid(),abline(h=0,col="grey")))
       lines(ages,pp[matchage],lwd=2,col=2)
       lines(ages,sel[matchage]*(0.975*ymax),col=3,lwd=1)
       ymax <- getmaxy(logcount) 
-      plot(ages,logcount[matchage],type="p",pch=16,cex=1.0,col=1,ylim=c(0,ymax),
+      plot(ages,logcount,type="p",pch=16,cex=1.0,col=1,ylim=c(0,ymax),
            ylab="Log of Counts",panel.first=c(grid(),abline(h=0,col="grey")))
-      points(ages,predcount[matchage],pch=16,cex=1,col=2)
-      lines(ages,predcount[matchage],lwd=2,col=2)
+      points(ages,predcount,pch=16,cex=1,col=2)
+      lines(ages,predcount,lwd=2,col=2)
       lines(ages,sel[matchage]*max(predcount),lwd=1,col=3)
       text(0.8*max(ages),0.9*ymax,paste0("Fully Selected F = ",round(optpar[3],4),cex=1.0,font=7))
       label <- paste0("Av naa weighted F = ",round(sum(counts * FaA)/sum(counts),4))
       text(0.8*max(ages),0.8*ymax,label,cex=1.0,font=7)
    }
-   result <- cbind(counts,pcount,logcount,predcount,pCAA,pp[matchage],sel[matchage],FaA)
+   result <- cbind(counts,pcount,logcount,predcount,pCAA,pp,sel,FaA)
    colnames(result) <- c("counts","predcounts","logcount","logpredcount",
                          "pCAA","predpCAA","Selectivity","FaA")
    rownames(result) <- ages

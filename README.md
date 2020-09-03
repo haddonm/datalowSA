@@ -15,5 +15,7 @@ The steps above will install the vignettes as well (use browseVignettes("datalow
 
 Development of 'datalowSA' has already moved beyond 'simpleSA', and it now contains code for conducting simple age-structured stock reduction analyses on truly data-poor fisheries such as are found in exploraory fisheries. However, those functions have yet to be completely documented inside a suitable vignette so especialy caution is urged should they be used (though each function contains worked examples).
 
+* 2020-09-03 datalowSA 0.1.2 Modified the incomplete catch-curve vignette to correct an equation and the plotting code for selectCC. Thanks to Andre for pointing out that the multinomial -ve log-likelihood equation had errors. The R-code functions, _selectCC_, _multLL_, and _multinomLL_ are all present and correct. 
+
 Reference:
 Haddon, M. Burch, P., Dowling, N., and R. Little (2019) Reducing the Number of Un-defined Species in Future Status of Australian Fish Stocks Reports: Phase Two - training in the assessment of data-poor stocks. FRDC Final Report 2017/102. CSIRO Oceans and Atmosphere and Fisheries Research Development Corpora-tion. Hobart 125 p.
