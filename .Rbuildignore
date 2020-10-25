@@ -5,3 +5,5 @@
 ^\.Rproj\.user$
 ^pdf$
 ^html$
+^data-raw$
+^README\.Rmd$
