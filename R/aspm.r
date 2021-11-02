@@ -42,7 +42,7 @@
 #' fishery <- dynamics(bestL$par,fish,glb,props)
 #' print(round(fishery,4)) 
 #' }
-aspmLL <- function(par,infish,inglb,inprops) {  # par=pars;infish=fish1; inprops=props; inglb=glb;
+aspmLL <- function(par,infish,inglb,inprops) {  # par=pars;infish=fish; inprops=props; inglb=glb;
    fishery <- dynamics(par,infish,inglb,inprops)
    penalty <- sum((fishery[,"Catch"] - fishery[,"PredC"])^2,na.rm=TRUE)/1000.0
    pick <- which(fishery$CPUE > 0)
@@ -140,6 +140,7 @@ aspmPENLL <- function(par,infish,inglb,inprops) {
 #' }       
 aspmphaseplot <- function(fishery,prod,ans,Blim=0.2,filename="",resol=200,
                           fnt=7) {
+#   fishery=fishery; prod=prod;ans=ans;Blim=0.2;filename="";resol=200;fnt=7
    lenfile <- nchar(filename)
    if (lenfile > 3) {
       end <- substr(filename,(lenfile-3),lenfile)
@@ -444,7 +445,8 @@ doDepletion <- function(inR0,indepl,inprops,inglb,inc=0.02,Numyrs=50) {
 #' fishery <- dynamics(par,infish=fish,inglb=glb,inprops=props)
 #' print(fishery)
 #' }
-dynamics <- function(pars,infish,inglb,inprops) {  # pars=pars;infish=fish1;inglb=glb;inprops=props
+dynamics <- function(pars,infish,inglb,inprops) {  
+  # pars=pars;infish=fish;inglb=glb;inprops=props
    waa <- inprops$waa
    maa <- inprops$maa
    sela <- inprops$sela
@@ -460,7 +462,7 @@ dynamics <- function(pars,infish,inglb,inprops) {  # pars=pars;infish=fish1;ingl
    nyrs <- length(infish[,"year"])
    nages <- inglb$nages
    maxage <- inglb$maxage
-   Nt <- matrix(0,nrow=nages,ncol=(nyrs+1),dimnames=list(0:(nages-1),0:nyrs))
+   Nt <- matrix(0,nrow=nages,ncol=(nyrs+1),dimnames=list(glb$ages,0:nyrs))
    columns <- c("Year","Catch","PredC","SpawnB","ExploitB","FullH","CPUE",
                 "PredCE","Deplete")
    fishery <- matrix(NA,nrow=(nyrs+1),ncol=length(columns),
@@ -495,7 +497,8 @@ dynamics <- function(pars,infish,inglb,inprops) {  # pars=pars;infish=fish1;ingl
    fishery[yr,4:5] <- c(spb,exb)
    fishery[,"Deplete"] <- fishery[,"SpawnB"]/B0
    ExpB <- fishery[1:nyrs,"ExploitB"]
-   avq <- exp(mean(log(infish$cpue/fishery[1:nyrs,"ExploitB"]),na.rm=TRUE))
+   pick <- which(infish$cpue > 0)
+   avq <- exp(mean(log(infish$cpue[pick]/fishery[pick,"ExploitB"]),na.rm=TRUE))
    fishery[2:(nyrs+1),"PredCE"] <- ExpB * avq
    return(as.data.frame(fishery))
 } # end of dynamics
@@ -590,10 +593,10 @@ fitASPM <- function(initpar,infish,inglb,inprops,callfun=aspmLL) {
 #' getB0(1275000,glb,props) # shoud give 19429.76
 #' getB0(1000000,glb,props) # should give 15239.03
 #' }
-getB0 <- function(inR0,inglb,inprops) { # assumes glb inR0 = par["R0"]
+getB0 <- function(inR0,inglb,inprops) { # inR0 = exp(par["R0"]); inglb=glb; inprops=props
    maxage <- inglb$maxage
    surv <- exp(-inglb$M)
-   Nt <- numeric(maxage+1)
+   Nt <- numeric(inglb$nages)
    Nt[1] <- 1  # calculate numbers-at-age per recruit
    for (age in 1:(maxage-1)) Nt[age+1] <- Nt[age] * surv
    Nt[maxage+1] <- (Nt[maxage] * surv)/(1-surv)
