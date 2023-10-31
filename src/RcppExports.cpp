@@ -5,6 +5,11 @@
 
 using namespace Rcpp;
 
+#ifdef RCPP_USE_GLOBAL_ROSTREAM
+Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
+Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
+#endif
+
 // makebiomC
 NumericMatrix makebiomC(NumericVector intheta, NumericVector bd, NumericVector ct);
 RcppExport SEXP _datalowSA_makebiomC(SEXP inthetaSEXP, SEXP bdSEXP, SEXP ctSEXP) {

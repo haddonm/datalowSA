@@ -462,7 +462,7 @@ dynamics <- function(pars,infish,inglb,inprops) {
    nyrs <- length(infish[,"year"])
    nages <- inglb$nages
    maxage <- inglb$maxage
-   Nt <- matrix(0,nrow=nages,ncol=(nyrs+1),dimnames=list(glb$ages,0:nyrs))
+   Nt <- matrix(0,nrow=nages,ncol=(nyrs+1),dimnames=list(inglb$ages,0:nyrs))
    columns <- c("Year","Catch","PredC","SpawnB","ExploitB","FullH","CPUE",
                 "PredCE","Deplete")
    fishery <- matrix(NA,nrow=(nyrs+1),ncol=length(columns),

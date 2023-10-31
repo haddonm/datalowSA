@@ -1,8 +1,8 @@
 Package: datalowSA
 Type: Package
 Title: A Package to Faciliate Application of Data poor Stock Assessments
-Version: 0.1.2
-Date: 2020-09-03
+Version: 0.1.3
+Date: 2023-11-1
 Author: Malcolm Haddon
 Maintainer: Malcolm Haddon <Malcolm.Haddon@gmail.com>
 Description: datalowSA is a significant fork of the original simpleSA developed during

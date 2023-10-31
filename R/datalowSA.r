@@ -89,6 +89,8 @@
 #'
 #' @docType package
 #' @name datalowSA
+#' @keywords internal
+"_PACKAGE"
 NULL
 
 #' @title fishdat Three data objects suitable for use with datalowSA.

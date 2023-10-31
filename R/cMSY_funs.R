@@ -252,8 +252,8 @@ doproject <- function(intraj,constC,projn=5,sigpR=0.025) { # intraj=traject; con
 #' @param ct  the vector of catches per year
 #' @param Hmax upper limit of harvest rate included in the constraints;
 #'     defaults to 1.0, which implies no upper limit.
-#' @param Fyear is the index to the year in which a rnage of harvest rates
-#'     is to be used to constrina the acceptable trajectories.
+#' @param Fyear is the index to the year in which a range of harvest rates
+#'     is to be used to constrain the acceptable trajectories.
 #'
 #' @return a vector of 1 and 0 relating to an acceptable trajectory (one that
 #'     met the criteria) and unacceptable (one that failed the criteria)
@@ -353,7 +353,7 @@ getprop <- function(invect,lim1=0.0,lim2=0.0) {
 #' @return a list containing itheta (the vectors of parameters), elltot (a
 #'     matrix of the yes/no vectors for each initial biomass depletion level),
 #'     and biomass (the biomass trajectories for each of the N parameter
-#'     vectors)  # theta=parbound;N=n;startbd=startbd;nyr=nyr;ct=ct;yr=yr;mult=multK; maxH=1.0;Fyear=NA
+#'     vectors)  # theta=parbound;N=n;startbd=startbd;nyr=nyr;ct=ct;yr=yr;mult=multK; maxH=1.0;Fyear=Hyear
 sraMSY <- function(theta, N, startbd, nyr, ct, yr,mult,maxH,Fyear) {
    ri <- runif(N, theta$r[1], theta$r[2])
    ki <- runif(N, theta$k[1], theta$k[2])
